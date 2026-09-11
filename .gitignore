@@ -1,0 +1,9 @@
+**/.pio/
+**/.venv/
+**/.uv-cache/
+**/.platformio-core/
+.vscode/
+*.bin
+*.elf
+*.map
+
