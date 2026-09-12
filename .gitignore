@@ -6,4 +6,7 @@
 *.bin
 *.elf
 *.map
-
+archive/source-notes/
+archive/legacy-docs/
+archive/legacy-schematics/
+references/component-screenshots/
