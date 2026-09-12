@@ -1,0 +1,14 @@
+connector,pin,net,color,wire,notes
+JH1,1,GND_ROTOR,black,26 AWG,KY-003 minus
+JH1,2,3V3_HALL,red,26 AWG,KY-003 plus; 3.3 V only
+JH1,3,HALL_OUT,yellow,26 AWG,KY-003 S to GPIO27
+JLA,1,5V_ROTOR,red,22 AWG,blade A power
+JLA,2,GND_ROTOR,black,22 AWG,blade A ground
+JLA,3,DATA_A,blue,26 AWG,buffer to APA102 DI
+JLA,4,CLOCK_A,white,26 AWG,buffer to APA102 CI
+JLB,1,5V_ROTOR,red,22 AWG,blade B power
+JLB,2,GND_ROTOR,black,22 AWG,blade B ground
+JLB,3,DATA_B,green,26 AWG,buffer to APA102 DI
+JLB,4,CLOCK_B,gray,26 AWG,buffer to APA102 CI
+JESC,1,GND_ROTOR,black,26 AWG,control ground
+JESC,2,ESC_PWM_ROTOR,orange,26 AWG,GPIO25 through 220 ohm
