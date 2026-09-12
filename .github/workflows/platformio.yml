@@ -1,0 +1,26 @@
+name: PlatformIO build
+
+on:
+  push:
+    paths:
+      - "firmware/**"
+      - ".github/workflows/platformio.yml"
+  pull_request:
+    paths:
+      - "firmware/**"
+      - ".github/workflows/platformio.yml"
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: firmware
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - run: pip install platformio==6.2.0
+      - run: platformio run
+
