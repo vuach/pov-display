@@ -4,27 +4,25 @@
 #include <BLEServer.h>
 #include <BLEUtils.h>
 
+#include "pov_renderer.h"
+#include "project_config.h"
+
 namespace hw {
-constexpr uint8_t HALL_PIN = 27;
-constexpr uint8_t ESC_PIN = 25;
-constexpr uint8_t ESC_CHANNEL = 0;
-constexpr uint16_t ESC_FREQUENCY_HZ = 50;
-constexpr uint8_t ESC_RESOLUTION_BITS = 16;
-constexpr uint16_t ESC_SAFE_US = 1000;
+constexpr uint8_t HALL_PIN = config::HALL_PIN;
+constexpr uint8_t ESC_PIN = config::ESC_PIN;
+constexpr uint8_t ESC_CHANNEL = config::ESC_CHANNEL;
+constexpr uint16_t ESC_FREQUENCY_HZ = config::ESC_FREQUENCY_HZ;
+constexpr uint8_t ESC_RESOLUTION_BITS = config::ESC_RESOLUTION_BITS;
+constexpr uint16_t ESC_SAFE_US = config::ESC_SAFE_US;
 }  // namespace hw
 
 namespace limits {
-constexpr uint32_t HALL_DEBOUNCE_US = 5000;
-constexpr uint32_t HALL_DISPLAY_TIMEOUT_US = 2000000;
-constexpr uint16_t TARGET_RPM_MIN = 600;
-constexpr uint16_t TARGET_RPM_MAX = 2400;
-constexpr uint32_t STATUS_PERIOD_MS = 1000;
+constexpr uint32_t HALL_DEBOUNCE_US = config::HALL_DEBOUNCE_US;
+constexpr uint32_t HALL_DISPLAY_TIMEOUT_US = config::HALL_STATUS_TIMEOUT_US;
+constexpr uint16_t TARGET_RPM_MIN = config::TARGET_RPM_MIN;
+constexpr uint16_t TARGET_RPM_MAX = config::TARGET_RPM_MAX;
+constexpr uint32_t STATUS_PERIOD_MS = config::STATUS_PERIOD_MS;
 }
-
-// Keep this at 0 until an ESC, a rigid guard and the complete bring-up checklist exist.
-#ifndef ENABLE_ESC_ACTIVE_TEST
-#define ENABLE_ESC_ACTIVE_TEST 0
-#endif
 
 static BLEUUID serviceUuid("7dc00001-7b7a-4c6a-9f4b-0b62025a0001");
 static BLEUUID commandUuid("7dc00002-7b7a-4c6a-9f4b-0b62025a0001");
@@ -40,6 +38,7 @@ BLECharacteristic *statusCharacteristic = nullptr;
 bool bleConnected = false;
 uint32_t lastStatusMs = 0;
 String serialLine;
+PovRenderer povRenderer;
 
 uint32_t elapsed32(uint32_t now, uint32_t then) {
   return now - then;
@@ -153,6 +152,18 @@ void handleCommand(String command) {
     publishStatus(hallStatusText());
     return;
   }
+  if (command == "POVSTATUS") {
+    String status = "POV build=";
+    status += config::POV_OUTPUT_ENABLED ? "ENABLED" : "LOCKED";
+    status += " sync=";
+    status += povRenderer.hasSynchronization() ? "YES" : "NO";
+    status += " column=";
+    status += povRenderer.currentColumn() == UINT16_MAX
+                  ? String("NONE")
+                  : String(povRenderer.currentColumn());
+    publishStatus(status);
+    return;
+  }
   if (command == "ZERO") {
     resetHallCounters();
     return;
@@ -189,7 +200,7 @@ void handleCommand(String command) {
     return;
   }
   if (command == "HELP") {
-    publishStatus("CMDS PING STATUS HALL ZERO SIMRPM n PWM n SAFE");
+    publishStatus("CMDS PING STATUS HALL ZERO SIMRPM n PWM n SAFE POVSTATUS");
     return;
   }
 
@@ -274,9 +285,16 @@ void setup() {
   ledcAttachPin(hw::ESC_PIN, hw::ESC_CHANNEL);
   setEscSafe();
 
+  if (config::POV_OUTPUT_ENABLED) {
+    povRenderer.begin();
+  }
+
   setupBle();
   Serial.println("BLE name: ESP32-POV-Test");
-  Serial.println("Commands: PING STATUS HALL ZERO SIMRPM n PWM n SAFE HELP");
+  Serial.println("Commands: PING STATUS HALL ZERO SIMRPM n PWM n SAFE POVSTATUS HELP");
+  Serial.println(config::POV_OUTPUT_ENABLED
+                     ? "POV output ENABLED; Hall synchronization required"
+                     : "POV output LOCKED at build time");
   Serial.println("READY SAFE PWM=1000 us");
 }
 
@@ -286,6 +304,13 @@ void loop() {
   const HallSnapshot hall = readHall(true);
   if (hall.eventPending) {
     Serial.println("PULSE " + hallStatusText());
+    if (config::POV_OUTPUT_ENABLED && hall.periodUs != 0) {
+      povRenderer.synchronize(hall.lastUs, hall.periodUs);
+    }
+  }
+
+  if (config::POV_OUTPUT_ENABLED) {
+    povRenderer.tick(micros());
   }
 
   const uint32_t nowMs = millis();
@@ -296,4 +321,3 @@ void loop() {
 
   delay(2);
 }
-
