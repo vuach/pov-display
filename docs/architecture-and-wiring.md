@@ -15,8 +15,8 @@ flowchart LR
   BUCK --> SR[Кольцо: 1+2 = 5 V; 3+4 = GND]
   SR --> ESP[ESP32 на роторе]
   ESP --> BUF[SN74AHCT125]
-  BUF --> A[APA102 A: 21 LED]
-  BUF --> B[APA102 B: 21 LED]
+  BUF --> A[APA102 A: 20 LED default]
+  BUF --> B[APA102 B: 20 LED default]
   H[KY-003] --> ESP
   ESP -->|GPIO25, канал 5| ESC
 ```

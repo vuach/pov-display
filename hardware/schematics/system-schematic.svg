@@ -16,7 +16,7 @@
 
   <rect width="1600" height="1050" fill="white"/>
   <text x="55" y="58" class="title">ESP32 POV — актуальная двухлопастная схема</text>
-  <text x="55" y="90" class="small">2 × 150 мм · ориентировочно 2 × 21 APA102 · шестиканальное кольцо · ревизия 2026-09-11</text>
+  <text x="55" y="90" class="small">2 × 150 мм · первая сборка 2 × 20 APA102 · шестиканальное кольцо · ревизия 2026-09-21</text>
 
   <text x="55" y="145" class="section">Неподвижная часть</text>
   <rect x="55" y="175" width="170" height="90" class="box"/>
@@ -86,13 +86,13 @@
 
   <rect x="850" y="540" width="300" height="175" class="box"/>
   <text x="1000" y="582" text-anchor="middle" class="label">Лопасть A</text>
-  <text x="875" y="620" class="small">до 150 мм · ≈21 APA102</text>
+  <text x="875" y="620" class="small">до 150 мм · 20 APA102</text>
   <text x="875" y="654" class="small">DATA: 330–470 Ом</text>
   <text x="875" y="688" class="small">CLOCK: 330–470 Ом</text>
 
   <rect x="850" y="760" width="300" height="175" class="box"/>
   <text x="1000" y="802" text-anchor="middle" class="label">Лопасть B · +180°</text>
-  <text x="875" y="840" class="small">до 150 мм · ≈21 APA102</text>
+  <text x="875" y="840" class="small">до 150 мм · 20 APA102</text>
   <text x="875" y="874" class="small">DATA: 330–470 Ом</text>
   <text x="875" y="908" class="small">CLOCK: 330–470 Ом</text>
 

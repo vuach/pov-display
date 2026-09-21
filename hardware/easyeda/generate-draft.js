@@ -234,14 +234,14 @@ function rotorSheet() {
     "pin 2 GND_ROTOR",
     "pin 3 DATA_A -> DI",
     "pin 4 CLOCK_A -> CI",
-    "approx. 21 LEDs / verify",
+    "20 LEDs default / verify if 21 fit",
   ], { color: "#AA0000" });
   block(s, 1080, 390, 250, 190, "JLB", "APA102 BLADE B", [
     "pin 1 +5V_ROTOR",
     "pin 2 GND_ROTOR",
     "pin 3 DATA_B -> DI",
     "pin 4 CLOCK_B -> CI",
-    "approx. 21 LEDs / verify",
+    "20 LEDs default / verify if 21 fit",
   ], { color: "#AA0000" });
   wire([[1200, 120], [1200, 180]]);
   wire([[1230, 120], [1230, 390]]);
