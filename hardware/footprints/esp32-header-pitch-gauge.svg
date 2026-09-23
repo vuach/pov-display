@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100mm" height="65mm" viewBox="0 0 100 65">
+  <title>ESP32 15-pin header pitch gauge</title>
+  <desc>Print at 100 percent. Pierce the circles and test one physical header row without force.</desc>
+
+  <g fill="none" stroke="#000" stroke-width="0.2">
+    <g id="pitch-250">
+      <circle cx="15" cy="12" r="0.55"/><circle cx="17.5" cy="12" r="0.55"/>
+      <circle cx="20" cy="12" r="0.55"/><circle cx="22.5" cy="12" r="0.55"/>
+      <circle cx="25" cy="12" r="0.55"/><circle cx="27.5" cy="12" r="0.55"/>
+      <circle cx="30" cy="12" r="0.55"/><circle cx="32.5" cy="12" r="0.55"/>
+      <circle cx="35" cy="12" r="0.55"/><circle cx="37.5" cy="12" r="0.55"/>
+      <circle cx="40" cy="12" r="0.55"/><circle cx="42.5" cy="12" r="0.55"/>
+      <circle cx="45" cy="12" r="0.55"/><circle cx="47.5" cy="12" r="0.55"/>
+      <circle cx="50" cy="12" r="0.55"/>
+    </g>
+    <g id="pitch-252">
+      <circle cx="15" cy="25" r="0.55"/><circle cx="17.52" cy="25" r="0.55"/>
+      <circle cx="20.04" cy="25" r="0.55"/><circle cx="22.56" cy="25" r="0.55"/>
+      <circle cx="25.08" cy="25" r="0.55"/><circle cx="27.60" cy="25" r="0.55"/>
+      <circle cx="30.12" cy="25" r="0.55"/><circle cx="32.64" cy="25" r="0.55"/>
+      <circle cx="35.16" cy="25" r="0.55"/><circle cx="37.68" cy="25" r="0.55"/>
+      <circle cx="40.20" cy="25" r="0.55"/><circle cx="42.72" cy="25" r="0.55"/>
+      <circle cx="45.24" cy="25" r="0.55"/><circle cx="47.76" cy="25" r="0.55"/>
+      <circle cx="50.28" cy="25" r="0.55"/>
+    </g>
+    <g id="pitch-254">
+      <circle cx="15" cy="38" r="0.55"/><circle cx="17.54" cy="38" r="0.55"/>
+      <circle cx="20.08" cy="38" r="0.55"/><circle cx="22.62" cy="38" r="0.55"/>
+      <circle cx="25.16" cy="38" r="0.55"/><circle cx="27.70" cy="38" r="0.55"/>
+      <circle cx="30.24" cy="38" r="0.55"/><circle cx="32.78" cy="38" r="0.55"/>
+      <circle cx="35.32" cy="38" r="0.55"/><circle cx="37.86" cy="38" r="0.55"/>
+      <circle cx="40.40" cy="38" r="0.55"/><circle cx="42.94" cy="38" r="0.55"/>
+      <circle cx="45.48" cy="38" r="0.55"/><circle cx="48.02" cy="38" r="0.55"/>
+      <circle cx="50.56" cy="38" r="0.55"/>
+    </g>
+
+    <line x1="15" y1="55" x2="65" y2="55" stroke-width="0.4"/>
+    <line x1="15" y1="53.5" x2="15" y2="56.5"/>
+    <line x1="65" y1="53.5" x2="65" y2="56.5"/>
+  </g>
+
+  <g font-family="Arial, sans-serif" fill="#000">
+    <text x="5" y="5" font-size="3.5" font-weight="bold">ESP32 HEADER PITCH GAUGE — PRINT 100%</text>
+    <text x="55" y="13" font-size="3">2.50 mm — span 35.00</text>
+    <text x="55" y="26" font-size="3">2.52 mm — span 35.28</text>
+    <text x="55" y="39" font-size="3">2.54 mm — span 35.56</text>
+    <text x="28" y="59" font-size="3">50 mm control</text>
+    <text x="5" y="63" font-size="2.5">Pierce one row and insert pins without force. Do not judge from a raised-board photo.</text>
+  </g>
+</svg>

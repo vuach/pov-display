@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<svg xmlns="http://www.w3.org/2000/svg" width="100mm" height="80mm" viewBox="0 0 100 80">
+  <title>ESP32 DevKit V1 30-pin verification template Rev B</title>
+  <desc>Asymmetric Rev B test template. Print at 100 percent and physically verify before fabrication.</desc>
+
+  <g fill="none" stroke="#000" stroke-width="0.2">
+    <rect x="35.75" y="14.2" width="28.5" height="51.6" rx="1.5"/>
+    <rect x="43" y="9" width="14" height="5.2" stroke-dasharray="1 1"/>
+
+    <circle cx="38.35" cy="16.6" r="1.55"/>
+    <circle cx="61.65" cy="16.6" r="1.55"/>
+    <circle cx="38.35" cy="63.4" r="1.55"/>
+    <circle cx="61.65" cy="63.4" r="1.55"/>
+
+    <g id="left-row">
+      <circle cx="37.2375" cy="24.185" r="0.55"/><circle cx="37.2375" cy="26.705" r="0.55"/>
+      <circle cx="37.2375" cy="29.225" r="0.55"/><circle cx="37.2375" cy="31.745" r="0.55"/>
+      <circle cx="37.2375" cy="34.265" r="0.55"/><circle cx="37.2375" cy="36.785" r="0.55"/>
+      <circle cx="37.2375" cy="39.305" r="0.55"/><circle cx="37.2375" cy="41.825" r="0.55"/>
+      <circle cx="37.2375" cy="44.345" r="0.55"/><circle cx="37.2375" cy="46.865" r="0.55"/>
+      <circle cx="37.2375" cy="49.385" r="0.55"/><circle cx="37.2375" cy="51.905" r="0.55"/>
+      <circle cx="37.2375" cy="54.425" r="0.55"/><circle cx="37.2375" cy="56.945" r="0.55"/>
+      <circle cx="37.2375" cy="59.465" r="0.55"/>
+    </g>
+    <g id="right-row">
+      <circle cx="62.7625" cy="24.185" r="0.55"/><circle cx="62.7625" cy="26.705" r="0.55"/>
+      <circle cx="62.7625" cy="29.225" r="0.55"/><circle cx="62.7625" cy="31.745" r="0.55"/>
+      <circle cx="62.7625" cy="34.265" r="0.55"/><circle cx="62.7625" cy="36.785" r="0.55"/>
+      <circle cx="62.7625" cy="39.305" r="0.55"/><circle cx="62.7625" cy="41.825" r="0.55"/>
+      <circle cx="62.7625" cy="44.345" r="0.55"/><circle cx="62.7625" cy="46.865" r="0.55"/>
+      <circle cx="62.7625" cy="49.385" r="0.55"/><circle cx="62.7625" cy="51.905" r="0.55"/>
+      <circle cx="62.7625" cy="54.425" r="0.55"/><circle cx="62.7625" cy="56.945" r="0.55"/>
+      <circle cx="62.7625" cy="59.465" r="0.55"/>
+    </g>
+
+    <line x1="10" y1="72" x2="60" y2="72" stroke-width="0.4"/>
+    <line x1="10" y1="70.5" x2="10" y2="73.5"/>
+    <line x1="60" y1="70.5" x2="60" y2="73.5"/>
+  </g>
+
+  <g font-family="Arial, sans-serif" fill="#000">
+    <text x="5" y="5" font-size="3.5" font-weight="bold">ESP32 DEVKIT V1 — REV B — VERIFY ONLY</text>
+    <text x="68" y="18" font-size="2.5">Body 28.50 × 51.60</text>
+    <text x="68" y="22" font-size="2.5">Holes 23.30 × 46.80</text>
+    <text x="68" y="26" font-size="2.5">Rows 25.525</text>
+    <text x="68" y="30" font-size="2.5">Pin pitch 2.52</text>
+    <text x="68" y="34" font-size="2.5">Shift 1.825 to antenna</text>
+    <text x="44" y="12.5" font-size="2.3">USB</text>
+    <text x="27" y="74.8" font-size="2.5">50 mm control</text>
+  </g>
+</svg>
