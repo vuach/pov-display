@@ -4,8 +4,8 @@
 
 | Канал | Статор | Ротор | Назначение |
 |---:|---|---|---|
-| 1 | `5V_STATOR_A` | `5V_ROTOR_A` | Питание 5 В |
-| 2 | `5V_STATOR_B` | `5V_ROTOR_B` | Питание 5 В |
+| 1 | `VBAT_STATOR_A` | `VBAT_ROTOR_A` | Необработанное питание Rev B |
+| 2 | `VBAT_STATOR_B` | `VBAT_ROTOR_B` | Необработанное питание Rev B |
 | 3 | `GND_STATOR_A` | `GND_ROTOR_A` | Земля |
 | 4 | `GND_STATOR_B` | `GND_ROTOR_B` | Земля |
 | 5 | `ESC_PWM_STATOR` | `ESC_PWM_ROTOR` | Управление ESC |

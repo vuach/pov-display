@@ -1,0 +1,119 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="330mm" height="210mm" viewBox="-2 -2 114 74"><rect width="110" height="70" fill="#edf4ed" stroke="#111" stroke-width="0.3"/>
+<polyline points="7,67 7,62 20,62 20,60" fill="none" stroke="#2366cf" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="9.54,67 9.54,62" fill="none" stroke="#2366cf" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="20,44 20,7 31.2375,7 31.2375,17.36" fill="none" stroke="#2366cf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="31.2375,7 98.5,7 98.5,10 105,10" fill="none" stroke="#2366cf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="80.81,18 84,18 84,7" fill="none" stroke="#2366cf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="98.5,7 100,8" fill="none" stroke="#2366cf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="98.5,7 98.5,48 100,50 105,51.5" fill="none" stroke="#2366cf" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="73.19,23.08 69,23.08" fill="none" stroke="#2366cf" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="73.19,30.7 69,30.7" fill="none" stroke="#2366cf" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="80.81,33.24 82.5,33.24 82.5,38.32 87,38.32" fill="none" stroke="#2366cf" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="59.5,59 59.5,64.54 67,64.54" fill="none" stroke="#2366cf" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="67.12,59 70,59 70,67.08 67,67.08" fill="none" stroke="#2366cf" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="31.2375,35 24,35 24,61.5" fill="none" stroke="#2366cf" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="31.62,61.5 33.5,61.5 33.5,65 17.16,65 17.16,67" fill="none" stroke="#2366cf" stroke-width="0.8" stroke-linecap="round" stroke-linejoin="round"/>
+<polyline points="80.81,18 84,18" fill="none" stroke="#2366cf" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round"/>
+<circle cx="31.2375" cy="17.36" r="1" fill="#d4af00"/><circle cx="31.2375" cy="17.36" r="0.5" fill="white"><title>U1.L1-VIN 5V</title></circle>
+<circle cx="56.7625" cy="17.36" r="1" fill="#d4af00"/><circle cx="56.7625" cy="17.36" r="0.5" fill="white"><title>U1.R1-3V3 3V3</title></circle>
+<circle cx="31.2375" cy="19.88" r="1" fill="#5b7"/><circle cx="31.2375" cy="19.88" r="0.5" fill="white"><title>U1.L2-GND GND</title></circle>
+<circle cx="56.7625" cy="19.88" r="1" fill="#5b7"/><circle cx="56.7625" cy="19.88" r="0.5" fill="white"><title>U1.R2-GND GND</title></circle>
+<circle cx="31.2375" cy="22.4" r="1" fill="#d4af00"/><circle cx="31.2375" cy="22.4" r="0.5" fill="white"><title>U1.L3-D13 NC</title></circle>
+<circle cx="56.7625" cy="22.4" r="1" fill="#d4af00"/><circle cx="56.7625" cy="22.4" r="0.5" fill="white"><title>U1.R3-D15 NC</title></circle>
+<circle cx="31.2375" cy="24.92" r="1" fill="#d4af00"/><circle cx="31.2375" cy="24.92" r="0.5" fill="white"><title>U1.L4-D12 NC</title></circle>
+<circle cx="56.7625" cy="24.92" r="1" fill="#d4af00"/><circle cx="56.7625" cy="24.92" r="0.5" fill="white"><title>U1.R4-D2 NC</title></circle>
+<circle cx="31.2375" cy="27.439999999999998" r="1" fill="#d4af00"/><circle cx="31.2375" cy="27.439999999999998" r="0.5" fill="white"><title>U1.L5-D14 NC</title></circle>
+<circle cx="56.7625" cy="27.439999999999998" r="1" fill="#d4af00"/><circle cx="56.7625" cy="27.439999999999998" r="0.5" fill="white"><title>U1.R5-D4 NC</title></circle>
+<circle cx="31.2375" cy="29.96" r="1" fill="#d4af00"/><circle cx="31.2375" cy="29.96" r="0.5" fill="white"><title>U1.L6-D27 HALL</title></circle>
+<circle cx="56.7625" cy="29.96" r="1" fill="#d4af00"/><circle cx="56.7625" cy="29.96" r="0.5" fill="white"><title>U1.R6-RX2 NC</title></circle>
+<circle cx="31.2375" cy="32.480000000000004" r="1" fill="#d4af00"/><circle cx="31.2375" cy="32.480000000000004" r="0.5" fill="white"><title>U1.L7-D26 NC</title></circle>
+<circle cx="56.7625" cy="32.480000000000004" r="1" fill="#d4af00"/><circle cx="56.7625" cy="32.480000000000004" r="0.5" fill="white"><title>U1.R7-TX2 NC</title></circle>
+<circle cx="31.2375" cy="35" r="1" fill="#d4af00"/><circle cx="31.2375" cy="35" r="0.5" fill="white"><title>U1.L8-D25 ESC_PWM_3V3</title></circle>
+<circle cx="56.7625" cy="35" r="1" fill="#d4af00"/><circle cx="56.7625" cy="35" r="0.5" fill="white"><title>U1.R8-D5 NC</title></circle>
+<circle cx="31.2375" cy="37.519999999999996" r="1" fill="#d4af00"/><circle cx="31.2375" cy="37.519999999999996" r="0.5" fill="white"><title>U1.L9-D33 NC</title></circle>
+<circle cx="56.7625" cy="37.519999999999996" r="1" fill="#d4af00"/><circle cx="56.7625" cy="37.519999999999996" r="0.5" fill="white"><title>U1.R9-D18 DATA_A_3V3</title></circle>
+<circle cx="31.2375" cy="40.04" r="1" fill="#d4af00"/><circle cx="31.2375" cy="40.04" r="0.5" fill="white"><title>U1.L10-D32 NC</title></circle>
+<circle cx="56.7625" cy="40.04" r="1" fill="#d4af00"/><circle cx="56.7625" cy="40.04" r="0.5" fill="white"><title>U1.R10-D19 CLOCK_A_3V3</title></circle>
+<circle cx="31.2375" cy="42.56" r="1" fill="#d4af00"/><circle cx="31.2375" cy="42.56" r="0.5" fill="white"><title>U1.L11-D35 NC</title></circle>
+<circle cx="56.7625" cy="42.56" r="1" fill="#d4af00"/><circle cx="56.7625" cy="42.56" r="0.5" fill="white"><title>U1.R11-D21 NC</title></circle>
+<circle cx="31.2375" cy="45.08" r="1" fill="#d4af00"/><circle cx="31.2375" cy="45.08" r="0.5" fill="white"><title>U1.L12-D34 NC</title></circle>
+<circle cx="56.7625" cy="45.08" r="1" fill="#d4af00"/><circle cx="56.7625" cy="45.08" r="0.5" fill="white"><title>U1.R12-RX0 NC</title></circle>
+<circle cx="31.2375" cy="47.6" r="1" fill="#d4af00"/><circle cx="31.2375" cy="47.6" r="0.5" fill="white"><title>U1.L13-VN NC</title></circle>
+<circle cx="56.7625" cy="47.6" r="1" fill="#d4af00"/><circle cx="56.7625" cy="47.6" r="0.5" fill="white"><title>U1.R13-TX0 NC</title></circle>
+<circle cx="31.2375" cy="50.12" r="1" fill="#d4af00"/><circle cx="31.2375" cy="50.12" r="0.5" fill="white"><title>U1.L14-VP NC</title></circle>
+<circle cx="56.7625" cy="50.12" r="1" fill="#d4af00"/><circle cx="56.7625" cy="50.12" r="0.5" fill="white"><title>U1.R14-D22 CLOCK_B_3V3</title></circle>
+<circle cx="31.2375" cy="52.64" r="1" fill="#d4af00"/><circle cx="31.2375" cy="52.64" r="0.5" fill="white"><title>U1.L15-EN NC</title></circle>
+<circle cx="56.7625" cy="52.64" r="1" fill="#d4af00"/><circle cx="56.7625" cy="52.64" r="0.5" fill="white"><title>U1.R15-D23 DATA_B_3V3</title></circle>
+<circle cx="73.19" cy="18" r="1" fill="#5b7"/><circle cx="73.19" cy="18" r="0.5" fill="white"><title>U4.1 GND</title></circle>
+<circle cx="73.19" cy="20.54" r="1" fill="#d4af00"/><circle cx="73.19" cy="20.54" r="0.5" fill="white"><title>U4.2 DATA_A_3V3</title></circle>
+<circle cx="73.19" cy="23.08" r="1" fill="#d4af00"/><circle cx="73.19" cy="23.08" r="0.5" fill="white"><title>U4.3 DATA_A_BUF</title></circle>
+<circle cx="73.19" cy="25.62" r="1" fill="#5b7"/><circle cx="73.19" cy="25.62" r="0.5" fill="white"><title>U4.4 GND</title></circle>
+<circle cx="73.19" cy="28.16" r="1" fill="#d4af00"/><circle cx="73.19" cy="28.16" r="0.5" fill="white"><title>U4.5 CLOCK_A_3V3</title></circle>
+<circle cx="73.19" cy="30.7" r="1" fill="#d4af00"/><circle cx="73.19" cy="30.7" r="0.5" fill="white"><title>U4.6 CLOCK_A_BUF</title></circle>
+<circle cx="73.19" cy="33.24" r="1" fill="#5b7"/><circle cx="73.19" cy="33.24" r="0.5" fill="white"><title>U4.7 GND</title></circle>
+<circle cx="80.81" cy="33.24" r="1" fill="#d4af00"/><circle cx="80.81" cy="33.24" r="0.5" fill="white"><title>U4.8 DATA_B_BUF</title></circle>
+<circle cx="80.81" cy="30.7" r="1" fill="#d4af00"/><circle cx="80.81" cy="30.7" r="0.5" fill="white"><title>U4.9 DATA_B_3V3</title></circle>
+<circle cx="80.81" cy="28.16" r="1" fill="#5b7"/><circle cx="80.81" cy="28.16" r="0.5" fill="white"><title>U4.10 GND</title></circle>
+<circle cx="80.81" cy="25.62" r="1" fill="#d4af00"/><circle cx="80.81" cy="25.62" r="0.5" fill="white"><title>U4.11 CLOCK_B_BUF</title></circle>
+<circle cx="80.81" cy="23.08" r="1" fill="#d4af00"/><circle cx="80.81" cy="23.08" r="0.5" fill="white"><title>U4.12 CLOCK_B_3V3</title></circle>
+<circle cx="80.81" cy="20.54" r="1" fill="#5b7"/><circle cx="80.81" cy="20.54" r="0.5" fill="white"><title>U4.13 GND</title></circle>
+<circle cx="80.81" cy="18" r="1" fill="#d4af00"/><circle cx="80.81" cy="18" r="0.5" fill="white"><title>U4.14 5V</title></circle>
+<circle cx="7" cy="60" r="1.7" fill="#5b7"/><circle cx="7" cy="60" r="0.65" fill="white"><title>U2-MP1584.IN- GND</title></circle>
+<circle cx="20" cy="60" r="1.7" fill="#d4af00"/><circle cx="20" cy="60" r="0.65" fill="white"><title>U2-MP1584.IN+ VBAT</title></circle>
+<circle cx="7" cy="44" r="1.7" fill="#5b7"/><circle cx="7" cy="44" r="0.65" fill="white"><title>U2-MP1584.OUT- GND</title></circle>
+<circle cx="20" cy="44" r="1.7" fill="#d4af00"/><circle cx="20" cy="44" r="0.65" fill="white"><title>U2-MP1584.OUT+ 5V</title></circle>
+<circle cx="105" cy="10" r="1" fill="#d4af00"/><circle cx="105" cy="10" r="0.5" fill="white"><title>J_A.1 5V</title></circle>
+<circle cx="105" cy="12.54" r="1" fill="#5b7"/><circle cx="105" cy="12.54" r="0.5" fill="white"><title>J_A.2 GND</title></circle>
+<circle cx="105" cy="15.08" r="1" fill="#d4af00"/><circle cx="105" cy="15.08" r="0.5" fill="white"><title>J_A.3 DATA_A</title></circle>
+<circle cx="105" cy="17.62" r="1" fill="#d4af00"/><circle cx="105" cy="17.62" r="0.5" fill="white"><title>J_A.4 CLOCK_A</title></circle>
+<circle cx="105" cy="51.5" r="1" fill="#d4af00"/><circle cx="105" cy="51.5" r="0.5" fill="white"><title>J_B.1 5V</title></circle>
+<circle cx="105" cy="54.04" r="1" fill="#5b7"/><circle cx="105" cy="54.04" r="0.5" fill="white"><title>J_B.2 GND</title></circle>
+<circle cx="105" cy="56.58" r="1" fill="#d4af00"/><circle cx="105" cy="56.58" r="0.5" fill="white"><title>J_B.3 DATA_B</title></circle>
+<circle cx="105" cy="59.12" r="1" fill="#d4af00"/><circle cx="105" cy="59.12" r="0.5" fill="white"><title>J_B.4 CLOCK_B</title></circle>
+<circle cx="67" cy="62" r="1" fill="#5b7"/><circle cx="67" cy="62" r="0.5" fill="white"><title>J_HALL.1 GND</title></circle>
+<circle cx="67" cy="64.54" r="1" fill="#d4af00"/><circle cx="67" cy="64.54" r="0.5" fill="white"><title>J_HALL.2 3V3</title></circle>
+<circle cx="67" cy="67.08" r="1" fill="#d4af00"/><circle cx="67" cy="67.08" r="0.5" fill="white"><title>J_HALL.3 HALL</title></circle>
+<circle cx="7" cy="67" r="1" fill="#d4af00"/><circle cx="7" cy="67" r="0.5" fill="white"><title>J_RING.1 VBAT</title></circle>
+<circle cx="9.54" cy="67" r="1" fill="#d4af00"/><circle cx="9.54" cy="67" r="0.5" fill="white"><title>J_RING.2 VBAT</title></circle>
+<circle cx="12.08" cy="67" r="1" fill="#5b7"/><circle cx="12.08" cy="67" r="0.5" fill="white"><title>J_RING.3 GND</title></circle>
+<circle cx="14.62" cy="67" r="1" fill="#5b7"/><circle cx="14.62" cy="67" r="0.5" fill="white"><title>J_RING.4 GND</title></circle>
+<circle cx="17.16" cy="67" r="1" fill="#d4af00"/><circle cx="17.16" cy="67" r="0.5" fill="white"><title>J_RING.5 ESC_PWM</title></circle>
+<circle cx="19.7" cy="67" r="1" fill="#d4af00"/><circle cx="19.7" cy="67" r="0.5" fill="white"><title>J_RING.6 SPARE</title></circle>
+<circle cx="61.38" cy="23.08" r="1" fill="#d4af00"/><circle cx="61.38" cy="23.08" r="0.5" fill="white"><title>R1.1 DATA_A</title></circle>
+<circle cx="69" cy="23.08" r="1" fill="#d4af00"/><circle cx="69" cy="23.08" r="0.5" fill="white"><title>R1.2 DATA_A_BUF</title></circle>
+<circle cx="61.38" cy="30.7" r="1" fill="#d4af00"/><circle cx="61.38" cy="30.7" r="0.5" fill="white"><title>R2.1 CLOCK_A</title></circle>
+<circle cx="69" cy="30.7" r="1" fill="#d4af00"/><circle cx="69" cy="30.7" r="0.5" fill="white"><title>R2.2 CLOCK_A_BUF</title></circle>
+<circle cx="87" cy="38.32" r="1" fill="#d4af00"/><circle cx="87" cy="38.32" r="0.5" fill="white"><title>R3.1 DATA_B_BUF</title></circle>
+<circle cx="94.62" cy="38.32" r="1" fill="#d4af00"/><circle cx="94.62" cy="38.32" r="0.5" fill="white"><title>R3.2 DATA_B</title></circle>
+<circle cx="87" cy="45.94" r="1" fill="#d4af00"/><circle cx="87" cy="45.94" r="0.5" fill="white"><title>R4.1 CLOCK_B_BUF</title></circle>
+<circle cx="94.62" cy="45.94" r="1" fill="#d4af00"/><circle cx="94.62" cy="45.94" r="0.5" fill="white"><title>R4.2 CLOCK_B</title></circle>
+<circle cx="24" cy="61.5" r="1" fill="#d4af00"/><circle cx="24" cy="61.5" r="0.5" fill="white"><title>R5.1 ESC_PWM_3V3</title></circle>
+<circle cx="31.62" cy="61.5" r="1" fill="#d4af00"/><circle cx="31.62" cy="61.5" r="0.5" fill="white"><title>R5.2 ESC_PWM</title></circle>
+<circle cx="59.5" cy="59" r="1" fill="#d4af00"/><circle cx="59.5" cy="59" r="0.5" fill="white"><title>R6.1 3V3</title></circle>
+<circle cx="67.12" cy="59" r="1" fill="#d4af00"/><circle cx="67.12" cy="59" r="0.5" fill="white"><title>R6.2 HALL</title></circle>
+<circle cx="84" cy="18" r="1" fill="#d4af00"/><circle cx="84" cy="18" r="0.5" fill="white"><title>C3.1 5V</title></circle>
+<circle cx="84" cy="21" r="1" fill="#5b7"/><circle cx="84" cy="21" r="0.5" fill="white"><title>C3.2 GND</title></circle>
+<circle cx="100" cy="8" r="1.4" fill="#d4af00"/><circle cx="100" cy="8" r="0.5" fill="white"><title>C4.1 5V</title></circle>
+<circle cx="100" cy="12" r="1.4" fill="#5b7"/><circle cx="100" cy="12" r="0.5" fill="white"><title>C4.2 GND</title></circle>
+<circle cx="100" cy="50" r="1.4" fill="#d4af00"/><circle cx="100" cy="50" r="0.5" fill="white"><title>C5.1 5V</title></circle>
+<circle cx="100" cy="54" r="1.4" fill="#5b7"/><circle cx="100" cy="54" r="0.5" fill="white"><title>C5.2 GND</title></circle>
+<circle cx="32.35" cy="9.76" r="1.6" fill="white" stroke="#222" stroke-width="0.3"/>
+<circle cx="32.35" cy="56.56" r="1.6" fill="white" stroke="#222" stroke-width="0.3"/>
+<circle cx="55.65" cy="9.76" r="1.6" fill="white" stroke="#222" stroke-width="0.3"/>
+<circle cx="55.65" cy="56.56" r="1.6" fill="white" stroke="#222" stroke-width="0.3"/>
+<circle cx="3.5" cy="3.5" r="1.6" fill="white" stroke="#222" stroke-width="0.3"/>
+<circle cx="106.5" cy="3.5" r="1.6" fill="white" stroke="#222" stroke-width="0.3"/>
+<circle cx="3.5" cy="66.5" r="1.6" fill="white" stroke="#222" stroke-width="0.3"/>
+<circle cx="106.5" cy="66.5" r="1.6" fill="white" stroke="#222" stroke-width="0.3"/>
+<line x1="61.38" y1="23.08" x2="105" y2="15.08" stroke="#c33" stroke-width="0.5" stroke-dasharray="2 1"><title>W1 DATA_A insulated top wire</title></line>
+<line x1="61.38" y1="30.7" x2="105" y2="17.62" stroke="#c33" stroke-width="0.5" stroke-dasharray="2 1"><title>W2 CLOCK_A insulated top wire</title></line>
+<line x1="94.62" y1="38.32" x2="105" y2="56.58" stroke="#c33" stroke-width="0.5" stroke-dasharray="2 1"><title>W3 DATA_B insulated top wire</title></line>
+<line x1="94.62" y1="45.94" x2="105" y2="59.12" stroke="#c33" stroke-width="0.5" stroke-dasharray="2 1"><title>W4 CLOCK_B insulated top wire</title></line>
+<line x1="80.81" y1="25.62" x2="87" y2="45.94" stroke="#c33" stroke-width="0.5" stroke-dasharray="2 1"><title>W4A CLOCK_B_BUF insulated top wire</title></line>
+<line x1="56.7625" y1="37.52" x2="73.19" y2="20.54" stroke="#c33" stroke-width="0.5" stroke-dasharray="2 1"><title>W5 DATA_A_3V3 insulated top wire</title></line>
+<line x1="56.7625" y1="40.04" x2="73.19" y2="28.16" stroke="#c33" stroke-width="0.5" stroke-dasharray="2 1"><title>W6 CLOCK_A_3V3 insulated top wire</title></line>
+<line x1="56.7625" y1="52.64" x2="80.81" y2="30.7" stroke="#c33" stroke-width="0.5" stroke-dasharray="2 1"><title>W7 DATA_B_3V3 insulated top wire</title></line>
+<line x1="56.7625" y1="50.12" x2="80.81" y2="23.08" stroke="#c33" stroke-width="0.5" stroke-dasharray="2 1"><title>W8 CLOCK_B_3V3 insulated top wire</title></line>
+<line x1="56.7625" y1="17.36" x2="59.5" y2="59" stroke="#c33" stroke-width="0.5" stroke-dasharray="2 1"><title>W9 3V3 insulated top wire</title></line>
+<line x1="31.2375" y1="29.96" x2="67.12" y2="59" stroke="#c33" stroke-width="0.5" stroke-dasharray="2 1"><title>W10 HALL insulated top wire</title></line>
+<g font-family="Arial" font-size="2" fill="#111"><text x="29" y="6">ESP32 REV B</text><text x="70" y="15">SN74AHCT125</text><text x="5" y="42">MP1584 WIRED</text><text x="86" y="67">B.Cu ONLY + W1...W4</text><text x="42" y="68">USB</text></g></svg>

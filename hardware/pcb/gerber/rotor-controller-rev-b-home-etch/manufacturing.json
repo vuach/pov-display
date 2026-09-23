@@ -1,0 +1,150 @@
+{
+  "board_mm": [
+    110,
+    70
+  ],
+  "copper_layers": 1,
+  "copper_side": "bottom",
+  "home_etch": true,
+  "min_track_mm": 0.8,
+  "min_clearance_mm": 0.4,
+  "power_track_mm": 3,
+  "plated_holes": false,
+  "component_side": "top",
+  "wire_links": [
+    {
+      "ref": "W1",
+      "net": "DATA_A",
+      "from": [
+        61.38,
+        23.08
+      ],
+      "to": [
+        105,
+        15.08
+      ]
+    },
+    {
+      "ref": "W2",
+      "net": "CLOCK_A",
+      "from": [
+        61.38,
+        30.7
+      ],
+      "to": [
+        105,
+        17.62
+      ]
+    },
+    {
+      "ref": "W3",
+      "net": "DATA_B",
+      "from": [
+        94.62,
+        38.32
+      ],
+      "to": [
+        105,
+        56.58
+      ]
+    },
+    {
+      "ref": "W4",
+      "net": "CLOCK_B",
+      "from": [
+        94.62,
+        45.94
+      ],
+      "to": [
+        105,
+        59.12
+      ]
+    },
+    {
+      "ref": "W4A",
+      "net": "CLOCK_B_BUF",
+      "from": [
+        80.81,
+        25.62
+      ],
+      "to": [
+        87,
+        45.94
+      ]
+    },
+    {
+      "ref": "W5",
+      "net": "DATA_A_3V3",
+      "from": [
+        56.7625,
+        37.52
+      ],
+      "to": [
+        73.19,
+        20.54
+      ]
+    },
+    {
+      "ref": "W6",
+      "net": "CLOCK_A_3V3",
+      "from": [
+        56.7625,
+        40.04
+      ],
+      "to": [
+        73.19,
+        28.16
+      ]
+    },
+    {
+      "ref": "W7",
+      "net": "DATA_B_3V3",
+      "from": [
+        56.7625,
+        52.64
+      ],
+      "to": [
+        80.81,
+        30.7
+      ]
+    },
+    {
+      "ref": "W8",
+      "net": "CLOCK_B_3V3",
+      "from": [
+        56.7625,
+        50.12
+      ],
+      "to": [
+        80.81,
+        23.08
+      ]
+    },
+    {
+      "ref": "W9",
+      "net": "3V3",
+      "from": [
+        56.7625,
+        17.36
+      ],
+      "to": [
+        59.5,
+        59
+      ]
+    },
+    {
+      "ref": "W10",
+      "net": "HALL",
+      "from": [
+        31.2375,
+        29.96
+      ],
+      "to": [
+        67.12,
+        59
+      ]
+    }
+  ],
+  "esp32_footprint": "Rev B physically confirmed; 2.52 mm header pitch",
+  "mechanical_status": "electrical rotor carrier only; hub interface, retention and dynamic balance not qualified"
+}

@@ -1,6 +1,6 @@
 # EasyEDA
 
-`pov-display-schematic-rev-a.json` — основная двухлистовая принципиальная схема для EasyEDA Standard 6.5.51. В ней используются электрические символы с выводами, провода, имена цепей и флаги `No Connect`.
+`pov-display-schematic-rev-a.json` — историческая двухлистовая схема стендовой Rev A, в которой MP1584 расположен до кольца. Для односторонней платы ротора Rev B актуальна архитектура с MP1584 на роторе из `docs/architecture-and-wiring.md` и `hardware/pcb/rotor-controller-rev-b-home-etch.md`; Rev A нельзя использовать как монтажную схему Rev B.
 
 `pov-display-electrical-draft.json` — старый структурный черновик. Он сохранён только как обзор архитектуры и не должен использоваться вместо принципиальной схемы.
 

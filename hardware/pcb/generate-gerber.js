@@ -300,3 +300,7 @@ const manifest={board_mm:[board.width,board.height],layers:2,material:'FR-4',thi
 fs.writeFileSync(path.join(OUT,'manufacturing.json'),JSON.stringify(manifest,null,2)+'\n');
 
 console.log(`Generated ${pads.length} plated pads, ${holes.length} NPTH holes and ${traces.length} routed segments in ${OUT}`);
+
+// Reused by the EasyEDA source exporter. Keeping one geometry definition avoids
+// the editable source drifting away from the manufacturing Gerbers.
+module.exports = { board, pads, holes, traces };
