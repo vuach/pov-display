@@ -1,0 +1,118 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="264mm" height="192mm" viewBox="-2 -2 92 68">
+<rect x="0" y="0" width="88" height="64" fill="#e8f0e8" stroke="#111" stroke-width="0.3"/>
+<polyline points="35.7625,36.345 40,36.345 40,24.54 48.19,24.54" fill="none" stroke="#d33" stroke-width="0.35" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="35.7625,38.865 42,38.865 42,32.16 48.19,32.16" fill="none" stroke="#d33" stroke-width="0.35" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="35.7625,51.465 54,51.465 54,34.7 55.81,34.7" fill="none" stroke="#d33" stroke-width="0.35" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="35.7625,48.945 38,48.945" fill="none" stroke="#d33" stroke-width="0.35" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="38,48.945 38,18" fill="none" stroke="#2865d8" stroke-width="0.35" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="38,18 64,18 64,27.08 55.81,27.08" fill="none" stroke="#d33" stroke-width="0.35" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="48.19,27.08 51,27.08 51,12.5 69,12.5 69,14" fill="none" stroke="#2865d8" stroke-width="0.35" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="48.19,34.7 45.5,34.7 45.5,8 71,8 71,18 69,18" fill="none" stroke="#2865d8" stroke-width="0.35" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="55.81,37.24 61,37.24 61,37 69,37" fill="none" stroke="#d33" stroke-width="0.35" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="55.81,29.62 63,29.62 63,30 69,30" fill="none" stroke="#d33" stroke-width="0.35" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="76.62,14 79,14 79,23.08 84,23.08" fill="none" stroke="#d33" stroke-width="0.35" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="76.62,18 81.5,18 81.5,25.62 84,25.62" fill="none" stroke="#2865d8" stroke-width="0.35" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="76.62,37 79,37 79,43.08 84,43.08" fill="none" stroke="#d33" stroke-width="0.35" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="76.62,30 81.5,30 81.5,45.62 84,45.62" fill="none" stroke="#2865d8" stroke-width="0.35" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="35.7625,16.185 40,16.185 40,7 46.54,7 46.54,4.5" fill="none" stroke="#d33" stroke-width="0.45" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="40,10 36,10" fill="none" stroke="#d33" stroke-width="0.45" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="10.2375,28.785 32,28.785 32,8 43.62,8 43.62,10 40,10 40,2 52,2 52,4.5 49.08,4.5" fill="none" stroke="#2865d8" stroke-width="0.35" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="10.2375,33.825 20,33.825 20,55 24,55" fill="none" stroke="#d33" stroke-width="0.35" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="31.62,55 33,55 33,60 14.16,60" fill="none" stroke="#d33" stroke-width="0.35" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="4,60 6.54,60 6.54,57.5 86,57.5 86,18 84,18" fill="none" stroke="#2865d8" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="86,38 84,38" fill="none" stroke="#2865d8" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="7.5,57.5 7.5,16.185 10.2375,16.185" fill="none" stroke="#2865d8" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="66,57.5 66,22 55.81,22" fill="none" stroke="#2865d8" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="55.81,22 58.5,24" fill="none" stroke="#2865d8" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="86,50 82,50" fill="none" stroke="#2865d8" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<polyline points="86,18 86,8 82,8" fill="none" stroke="#2865d8" stroke-width="1.2" stroke-linecap="round" stroke-linejoin="round" opacity="0.82"/>
+<circle cx="10.2375" cy="16.185" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="10.2375" cy="16.185" r="0.55" fill="#fff"/><title>U1.L1-VIN 5V</title>
+<circle cx="35.7625" cy="16.185" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="35.7625" cy="16.185" r="0.55" fill="#fff"/><title>U1.R1-3V3 3V3</title>
+<circle cx="10.2375" cy="18.705" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="10.2375" cy="18.705" r="0.55" fill="#fff"/><title>U1.L2-GND GND</title>
+<circle cx="35.7625" cy="18.705" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="35.7625" cy="18.705" r="0.55" fill="#fff"/><title>U1.R2-GND GND</title>
+<circle cx="10.2375" cy="21.224999999999998" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="10.2375" cy="21.224999999999998" r="0.55" fill="#fff"/><title>U1.L3-D13 NC</title>
+<circle cx="35.7625" cy="21.224999999999998" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="35.7625" cy="21.224999999999998" r="0.55" fill="#fff"/><title>U1.R3-D15 NC</title>
+<circle cx="10.2375" cy="23.744999999999997" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="10.2375" cy="23.744999999999997" r="0.55" fill="#fff"/><title>U1.L4-D12 NC</title>
+<circle cx="35.7625" cy="23.744999999999997" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="35.7625" cy="23.744999999999997" r="0.55" fill="#fff"/><title>U1.R4-D2 NC</title>
+<circle cx="10.2375" cy="26.265" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="10.2375" cy="26.265" r="0.55" fill="#fff"/><title>U1.L5-D14 NC</title>
+<circle cx="35.7625" cy="26.265" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="35.7625" cy="26.265" r="0.55" fill="#fff"/><title>U1.R5-D4 NC</title>
+<circle cx="10.2375" cy="28.784999999999997" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="10.2375" cy="28.784999999999997" r="0.55" fill="#fff"/><title>U1.L6-D27 HALL</title>
+<circle cx="35.7625" cy="28.784999999999997" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="35.7625" cy="28.784999999999997" r="0.55" fill="#fff"/><title>U1.R6-RX2 NC</title>
+<circle cx="10.2375" cy="31.305" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="10.2375" cy="31.305" r="0.55" fill="#fff"/><title>U1.L7-D26 NC</title>
+<circle cx="35.7625" cy="31.305" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="35.7625" cy="31.305" r="0.55" fill="#fff"/><title>U1.R7-TX2 NC</title>
+<circle cx="10.2375" cy="33.825" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="10.2375" cy="33.825" r="0.55" fill="#fff"/><title>U1.L8-D25 ESC_PWM_3V3</title>
+<circle cx="35.7625" cy="33.825" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="35.7625" cy="33.825" r="0.55" fill="#fff"/><title>U1.R8-D5 NC</title>
+<circle cx="10.2375" cy="36.345" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="10.2375" cy="36.345" r="0.55" fill="#fff"/><title>U1.L9-D33 NC</title>
+<circle cx="35.7625" cy="36.345" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="35.7625" cy="36.345" r="0.55" fill="#fff"/><title>U1.R9-D18 DATA_A_3V3</title>
+<circle cx="10.2375" cy="38.864999999999995" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="10.2375" cy="38.864999999999995" r="0.55" fill="#fff"/><title>U1.L10-D32 NC</title>
+<circle cx="35.7625" cy="38.864999999999995" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="35.7625" cy="38.864999999999995" r="0.55" fill="#fff"/><title>U1.R10-D19 CLOCK_A_3V3</title>
+<circle cx="10.2375" cy="41.385" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="10.2375" cy="41.385" r="0.55" fill="#fff"/><title>U1.L11-D35 NC</title>
+<circle cx="35.7625" cy="41.385" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="35.7625" cy="41.385" r="0.55" fill="#fff"/><title>U1.R11-D21 NC</title>
+<circle cx="10.2375" cy="43.905" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="10.2375" cy="43.905" r="0.55" fill="#fff"/><title>U1.L12-D34 NC</title>
+<circle cx="35.7625" cy="43.905" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="35.7625" cy="43.905" r="0.55" fill="#fff"/><title>U1.R12-RX0 NC</title>
+<circle cx="10.2375" cy="46.425" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="10.2375" cy="46.425" r="0.55" fill="#fff"/><title>U1.L13-VN NC</title>
+<circle cx="35.7625" cy="46.425" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="35.7625" cy="46.425" r="0.55" fill="#fff"/><title>U1.R13-TX0 NC</title>
+<circle cx="10.2375" cy="48.94499999999999" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="10.2375" cy="48.94499999999999" r="0.55" fill="#fff"/><title>U1.L14-VP NC</title>
+<circle cx="35.7625" cy="48.94499999999999" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="35.7625" cy="48.94499999999999" r="0.55" fill="#fff"/><title>U1.R14-D22 CLOCK_B_3V3</title>
+<circle cx="10.2375" cy="51.465" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="10.2375" cy="51.465" r="0.55" fill="#fff"/><title>U1.L15-EN NC</title>
+<circle cx="35.7625" cy="51.465" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="35.7625" cy="51.465" r="0.55" fill="#fff"/><title>U1.R15-D23 DATA_B_3V3</title>
+<circle cx="48.19" cy="22" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="48.19" cy="22" r="0.55" fill="#fff"/><title>U4.1 GND</title>
+<circle cx="48.19" cy="24.54" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="48.19" cy="24.54" r="0.55" fill="#fff"/><title>U4.2 DATA_A_3V3</title>
+<circle cx="48.19" cy="27.08" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="48.19" cy="27.08" r="0.55" fill="#fff"/><title>U4.3 DATA_A_BUF</title>
+<circle cx="48.19" cy="29.62" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="48.19" cy="29.62" r="0.55" fill="#fff"/><title>U4.4 GND</title>
+<circle cx="48.19" cy="32.16" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="48.19" cy="32.16" r="0.55" fill="#fff"/><title>U4.5 CLOCK_A_3V3</title>
+<circle cx="48.19" cy="34.7" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="48.19" cy="34.7" r="0.55" fill="#fff"/><title>U4.6 CLOCK_A_BUF</title>
+<circle cx="48.19" cy="37.24" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="48.19" cy="37.24" r="0.55" fill="#fff"/><title>U4.7 GND</title>
+<circle cx="55.81" cy="37.24" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="55.81" cy="37.24" r="0.55" fill="#fff"/><title>U4.8 DATA_B_BUF</title>
+<circle cx="55.81" cy="34.7" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="55.81" cy="34.7" r="0.55" fill="#fff"/><title>U4.9 DATA_B_3V3</title>
+<circle cx="55.81" cy="32.16" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="55.81" cy="32.16" r="0.55" fill="#fff"/><title>U4.10 GND</title>
+<circle cx="55.81" cy="29.62" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="55.81" cy="29.62" r="0.55" fill="#fff"/><title>U4.11 CLOCK_B_BUF</title>
+<circle cx="55.81" cy="27.08" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="55.81" cy="27.08" r="0.55" fill="#fff"/><title>U4.12 CLOCK_B_3V3</title>
+<circle cx="55.81" cy="24.54" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="55.81" cy="24.54" r="0.55" fill="#fff"/><title>U4.13 GND</title>
+<circle cx="55.81" cy="22" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="55.81" cy="22" r="0.55" fill="#fff"/><title>U4.14 5V</title>
+<circle cx="84" cy="18" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="84" cy="18" r="0.55" fill="#fff"/><title>J_A.1 5V</title>
+<circle cx="84" cy="20.54" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="84" cy="20.54" r="0.55" fill="#fff"/><title>J_A.2 GND</title>
+<circle cx="84" cy="23.08" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="84" cy="23.08" r="0.55" fill="#fff"/><title>J_A.3 DATA_A</title>
+<circle cx="84" cy="25.62" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="84" cy="25.62" r="0.55" fill="#fff"/><title>J_A.4 CLOCK_A</title>
+<circle cx="84" cy="38" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="84" cy="38" r="0.55" fill="#fff"/><title>J_B.1 5V</title>
+<circle cx="84" cy="40.54" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="84" cy="40.54" r="0.55" fill="#fff"/><title>J_B.2 GND</title>
+<circle cx="84" cy="43.08" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="84" cy="43.08" r="0.55" fill="#fff"/><title>J_B.3 DATA_B</title>
+<circle cx="84" cy="45.62" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="84" cy="45.62" r="0.55" fill="#fff"/><title>J_B.4 CLOCK_B</title>
+<circle cx="4" cy="60" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="4" cy="60" r="0.55" fill="#fff"/><title>J_RING.1 5V</title>
+<circle cx="6.54" cy="60" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="6.54" cy="60" r="0.55" fill="#fff"/><title>J_RING.2 5V</title>
+<circle cx="9.08" cy="60" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="9.08" cy="60" r="0.55" fill="#fff"/><title>J_RING.3 GND</title>
+<circle cx="11.62" cy="60" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="11.62" cy="60" r="0.55" fill="#fff"/><title>J_RING.4 GND</title>
+<circle cx="14.16" cy="60" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="14.16" cy="60" r="0.55" fill="#fff"/><title>J_RING.5 ESC_PWM</title>
+<circle cx="16.7" cy="60" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="16.7" cy="60" r="0.55" fill="#fff"/><title>J_RING.6 NC</title>
+<circle cx="44" cy="4.5" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="44" cy="4.5" r="0.55" fill="#fff"/><title>J_HALL.1 GND</title>
+<circle cx="46.54" cy="4.5" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="46.54" cy="4.5" r="0.55" fill="#fff"/><title>J_HALL.2 3V3</title>
+<circle cx="49.08" cy="4.5" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="49.08" cy="4.5" r="0.55" fill="#fff"/><title>J_HALL.3 HALL</title>
+<circle cx="69" cy="14" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="69" cy="14" r="0.55" fill="#fff"/><title>R1.1 DATA_A_BUF</title>
+<circle cx="76.62" cy="14" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="76.62" cy="14" r="0.55" fill="#fff"/><title>R1.2 DATA_A</title>
+<circle cx="69" cy="18" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="69" cy="18" r="0.55" fill="#fff"/><title>R2.1 CLOCK_A_BUF</title>
+<circle cx="76.62" cy="18" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="76.62" cy="18" r="0.55" fill="#fff"/><title>R2.2 CLOCK_A</title>
+<circle cx="69" cy="37" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="69" cy="37" r="0.55" fill="#fff"/><title>R3.1 DATA_B_BUF</title>
+<circle cx="76.62" cy="37" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="76.62" cy="37" r="0.55" fill="#fff"/><title>R3.2 DATA_B</title>
+<circle cx="69" cy="30" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="69" cy="30" r="0.55" fill="#fff"/><title>R4.1 CLOCK_B_BUF</title>
+<circle cx="76.62" cy="30" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="76.62" cy="30" r="0.55" fill="#fff"/><title>R4.2 CLOCK_B</title>
+<circle cx="24" cy="55" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="24" cy="55" r="0.55" fill="#fff"/><title>R5.1 ESC_PWM_3V3</title>
+<circle cx="31.62" cy="55" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="31.62" cy="55" r="0.55" fill="#fff"/><title>R5.2 ESC_PWM</title>
+<circle cx="36" cy="10" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="36" cy="10" r="0.55" fill="#fff"/><title>R6.1 3V3</title>
+<circle cx="43.62" cy="10" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="43.62" cy="10" r="0.55" fill="#fff"/><title>R6.2 HALL</title>
+<circle cx="58.5" cy="24" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="58.5" cy="24" r="0.55" fill="#fff"/><title>C3.1 5V</title>
+<circle cx="61.04" cy="24" r="1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="61.04" cy="24" r="0.55" fill="#fff"/><title>C3.2 GND</title>
+<circle cx="82" cy="8" r="1.1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="82" cy="8" r="0.5" fill="#fff"/><title>C4.1 5V</title>
+<circle cx="82" cy="13" r="1.1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="82" cy="13" r="0.5" fill="#fff"/><title>C4.2 GND</title>
+<circle cx="82" cy="50" r="1.1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="82" cy="50" r="0.5" fill="#fff"/><title>C5.1 5V</title>
+<circle cx="82" cy="54" r="1.1" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="82" cy="54" r="0.5" fill="#fff"/><title>C5.2 GND</title>
+<circle cx="38" cy="48.945" r="0.45" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="38" cy="48.945" r="0.2" fill="#fff"/><title>V1.1 CLOCK_B_3V3</title>
+<circle cx="38" cy="18" r="0.45" fill="#d8b400" stroke="#555" stroke-width="0.12"/><circle cx="38" cy="18" r="0.2" fill="#fff"/><title>V2.1 CLOCK_B_3V3</title>
+<circle cx="11.35" cy="8.6" r="1.6" fill="#fff" stroke="#333" stroke-width="0.2"/>
+<circle cx="11.35" cy="55.4" r="1.6" fill="#fff" stroke="#333" stroke-width="0.2"/>
+<circle cx="34.65" cy="8.6" r="1.6" fill="#fff" stroke="#333" stroke-width="0.2"/>
+<circle cx="34.65" cy="55.4" r="1.6" fill="#fff" stroke="#333" stroke-width="0.2"/>
+<circle cx="4" cy="4" r="1.6" fill="#fff" stroke="#333" stroke-width="0.2"/>
+<circle cx="84" cy="4" r="1.6" fill="#fff" stroke="#333" stroke-width="0.2"/>
+<circle cx="4" cy="56" r="1.6" fill="#fff" stroke="#333" stroke-width="0.2"/>
+<circle cx="84" cy="56" r="1.6" fill="#fff" stroke="#333" stroke-width="0.2"/>
+<g font-family="Arial" font-size="1.8" fill="#111"><text x="9" y="6">ESP32 DEVKIT V1 REV B</text><text x="47" y="20">SN74AHCT125N</text><text x="65" y="12">R1</text><text x="65" y="20.5">R2</text><text x="65" y="35">R3</text><text x="65" y="45">R4</text><text x="76" y="17">BLADE A</text><text x="76" y="37">BLADE B</text><text x="2" y="63">RING</text><text x="42" y="3">HALL</text><text x="40" y="61.5" font-weight="bold">BENCH PROTOTYPE - DO NOT SPIN</text></g></svg>
