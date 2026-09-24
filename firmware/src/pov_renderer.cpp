@@ -17,15 +17,13 @@ bool periodInDisplayRange(uint32_t periodUs) {
 }  // namespace
 
 void PovRenderer::begin() {
-  buildStartupImage();
-
   spiA_.begin(config::LED_CLOCK_A_PIN, -1, config::LED_DATA_A_PIN, -1);
   spiB_.begin(config::LED_CLOCK_B_PIN, -1, config::LED_DATA_B_PIN, -1);
   dark_ = false;
   blackout();
 }
 
-void PovRenderer::buildStartupImage() {
+void PovRenderer::buildDiagnosticImage() {
   for (uint16_t angle = 0; angle < config::ANGULAR_COLUMNS; ++angle) {
     for (uint8_t radius = 0; radius < config::LEDS_PER_BLADE; ++radius) {
       Rgb pixel{0, 0, 0};
@@ -53,6 +51,34 @@ void PovRenderer::buildStartupImage() {
       image_[angle][radius] = pixel;
     }
   }
+}
+
+void PovRenderer::fillImage(Rgb color) {
+  for (uint16_t angle = 0; angle < config::ANGULAR_COLUMNS; ++angle) {
+    for (uint8_t radius = 0; radius < config::LEDS_PER_BLADE; ++radius) {
+      image_[angle][radius] = color;
+    }
+  }
+}
+
+bool PovRenderer::setPixel(uint16_t column, uint8_t radius, Rgb color) {
+  if (column >= config::ANGULAR_COLUMNS || radius >= config::LEDS_PER_BLADE) {
+    return false;
+  }
+  image_[column][radius] = color;
+  return true;
+}
+
+void PovRenderer::setBrightness(uint8_t brightness) {
+  brightness_ = brightness > 31 ? 31 : brightness;
+}
+
+void PovRenderer::setPhaseOffset(int16_t columns) {
+  int16_t normalized = columns % static_cast<int16_t>(config::ANGULAR_COLUMNS);
+  if (normalized < 0) {
+    normalized += config::ANGULAR_COLUMNS;
+  }
+  phaseOffsetColumns_ = normalized;
 }
 
 void PovRenderer::synchronize(uint32_t revolutionStartUs,
@@ -89,9 +115,11 @@ void PovRenderer::tick(uint32_t nowUs) {
     return;
   }
 
+  const uint16_t phased =
+      (column + phaseOffsetColumns_) % config::ANGULAR_COLUMNS;
   const uint16_t opposite =
-      (column + config::ANGULAR_COLUMNS / 2) % config::ANGULAR_COLUMNS;
-  encodeColumn(column, opposite);
+      (phased + config::ANGULAR_COLUMNS / 2) % config::ANGULAR_COLUMNS;
+  encodeColumn(phased, opposite);
   transferFrames();
   lastColumn_ = column;
   dark_ = false;
@@ -103,7 +131,7 @@ void PovRenderer::encodeBlade(uint8_t *destination, const Rgb *pixels) {
     destination[offset++] = 0x00;
   }
   for (uint8_t i = 0; i < config::LEDS_PER_BLADE; ++i) {
-    destination[offset++] = 0xE0 | config::APA102_GLOBAL_BRIGHTNESS;
+    destination[offset++] = 0xE0 | brightness_;
     destination[offset++] = pixels[i].b;
     destination[offset++] = pixels[i].g;
     destination[offset++] = pixels[i].r;

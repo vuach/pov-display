@@ -12,7 +12,7 @@ This is a bench prototype. The board is `88 x 64 mm`; it is not mechanically app
 
 `rotor-controller-rev-b-home-etch-kicad.zip` imports the editable single-sided home-etch revision. All routed copper and the GND zone are on `B.Cu`. Dashed `W1...W10`/`W4A` lines on `F.SilkS` are insulated component-side wire links, not copper tracks. Board size is `110 x 70 mm`.
 
-This revision follows the rotating-board component arrangement, but it still requires a separate structural hub/beam and dynamic balancing before any powered rotation.
+This revision is an electrical prototype of the rotating-board circuit. It is not the final rotor layout: the revised component and hole requirements are listed in `../board-architecture.md`, while placement waits for the slip-ring and hub dimensions. It also requires a separate structural hub/beam and dynamic balancing before any powered rotation.
 
 Regenerate from the same geometry as the Gerbers:
 

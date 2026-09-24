@@ -12,6 +12,8 @@
 
 namespace config {
 
+constexpr char FIRMWARE_VERSION[] = "1.0.0-project";
+
 constexpr uint8_t HALL_PIN = 27;
 constexpr uint8_t ESC_PIN = 25;
 
@@ -24,6 +26,15 @@ constexpr uint8_t ESC_CHANNEL = 0;
 constexpr uint16_t ESC_FREQUENCY_HZ = 50;
 constexpr uint8_t ESC_RESOLUTION_BITS = 16;
 constexpr uint16_t ESC_SAFE_US = 1000;
+constexpr uint16_t ESC_MAX_US = 1600;
+constexpr uint16_t ESC_HALL_REQUIRED_US = 1050;
+constexpr uint16_t ESC_RAMP_STEP_US = 5;
+constexpr uint32_t ESC_RAMP_PERIOD_MS = 20;
+constexpr uint32_t ESC_ARM_CONFIRM_TIMEOUT_MS = 3000;
+constexpr uint32_t ESC_HEARTBEAT_TIMEOUT_MS = 1000;
+constexpr uint32_t ESC_STARTUP_HALL_TIMEOUT_MS = 3000;
+constexpr uint32_t ESC_RUNNING_HALL_TIMEOUT_US = 500000;
+constexpr uint16_t ESC_HARD_RPM_LIMIT = 2600;
 
 constexpr uint8_t LEDS_PER_BLADE = 20;
 constexpr uint16_t ANGULAR_COLUMNS = 120;
@@ -44,5 +55,9 @@ static_assert(ANGULAR_COLUMNS % 2 == 0,
               "Two blades require an even angular column count");
 static_assert(LEDS_PER_BLADE >= 1 && LEDS_PER_BLADE <= 21,
               "Verify power and geometry before using more than 21 LEDs");
+static_assert(ESC_MAX_US >= ESC_SAFE_US,
+              "ESC maximum pulse must not be below the safe pulse");
+static_assert(ESC_HARD_RPM_LIMIT > TARGET_RPM_MAX,
+              "Hard RPM limit must be above the intended working range");
 
 }  // namespace config
