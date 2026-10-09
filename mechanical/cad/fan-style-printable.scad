@@ -8,23 +8,31 @@ part = "assembly";
 export_part = 0;
 show_hardware = true;
 
+// Strength revision 2026-10-09.  All printable load-carrying skins and
+// connector sections are at least 1.30x their previous thickness.  Hole
+// diameters and hole centres remain unchanged so the existing hardware layout
+// is preserved.
+strength_scale = 1.30;
+
 // Main envelope, matching fan-style-housing.scad.
 rotor_r = 178;
 guard_inner_r = 203;
-guard_outer_r = 217;
+guard_radial_wall = 14 * strength_scale;
+guard_outer_r = guard_inner_r + guard_radial_wall;
 guard_depth = 76;
 axis_z = 273;
 base_size = [390,260,38];
 base_top = [348,222];
 base_y = 18;
-base_wall = 3.2;
-base_floor = 4;
-cover_t = 4;
+base_wall = 3.2 * strength_scale;
+base_floor = 4 * strength_scale;
+cover_t = 4 * strength_scale;
 
 // Hardware clearances.
 m3 = 3.4;
 m4 = 4.5;
-boss_d = 11;
+boss_d = m3 + 2 * ((11 - m3) / 2) * strength_scale;
+pedestal_boss_d = m4 + 2 * ((13 - m4) / 2) * strength_scale;
 fit_gap = 0.35;
 
 pcb = [128.651,48.260,1.6];
@@ -34,12 +42,12 @@ pedestal_depth = 58;
 pedestal_y = 25;
 pedestal_split_z = 158;
 motor_plate_d = 92;
-motor_plate_t = 9;
+motor_plate_t = 9 * strength_scale;
 motor_plate_attach_r = 31;
 motor_mount_r = 17.5; // VERIFY on the real metal X-mount
 motor_slot_l = 8;
 
-ring_depth = 10;
+ring_depth = 10 * strength_scale;
 ring_segments = 8;
 segment_angle = 360/ring_segments;
 shield_standoff = (guard_depth-ring_depth)/2;
@@ -109,11 +117,13 @@ module base_shell() {
             // Reinforcement under pedestal bolts.
             for (p=pedestal_bolts)
                 translate([p[0],p[1],base_floor])
-                    cylinder(d=13,h=base_size[2]-base_floor);
+                    cylinder(d=pedestal_boss_d,h=base_size[2]-base_floor);
             // PCB rails.
             for (sy=[-1,1])
-                translate([-pcb[0]/2-2,pcb_center[1]+sy*(pcb[1]/2+1)-1.5,base_floor])
-                    cube([pcb[0]+4,3,5]);
+                translate([-pcb[0]/2-2.6,
+                           pcb_center[1]+sy*(pcb[1]/2+1)-1.95,
+                           base_floor])
+                    cube([pcb[0]+5.2,3*strength_scale,5*strength_scale]);
         }
         for (p=lid_points)
             translate([p[0],p[1],base_size[2]-30]) cylinder(d=2.8,h=31);
@@ -157,9 +167,11 @@ module cover_quadrant(sx=1,sy=1) {
 }
 
 module seam_plate() {
+    plate_d = m4 + (20-m4)*strength_scale;
+    plate_h = 4*strength_scale;
     difference() {
-        hull() for (x=[-25,25]) translate([x,0,0]) cylinder(d=20,h=4);
-        for (x=[-25,25]) translate([x,0,-0.1]) cylinder(d=m4,h=4.2);
+        hull() for (x=[-25,25]) translate([x,0,0]) cylinder(d=plate_d,h=plate_h);
+        for (x=[-25,25]) translate([x,0,-0.1]) cylinder(d=m4,h=plate_h+0.2);
     }
 }
 
@@ -175,8 +187,8 @@ module pedestal_raw() {
         // Lightening/cable window.
         translate([0,pedestal_y,0]) rotate([90,0,0])
             linear_extrude(height=pedestal_depth+2,center=true)
-                polygon([[-47,base_size[2]+24],[47,base_size[2]+24],
-                         [27,axis_z-68],[-27,axis_z-68]]);
+                polygon([[-33,base_size[2]+32],[33,base_size[2]+32],
+                         [20,axis_z-89],[-20,axis_z-89]]);
         for (p=pedestal_bolts)
             translate([p[0],p[1],base_size[2]-1]) cylinder(d=m4,h=18);
         // Holes for two join plates across the horizontal split.
@@ -200,9 +212,11 @@ module pedestal_upper() {
 }
 
 module pedestal_join_plate() {
+    plate_d = m4 + (14-m4)*strength_scale;
+    plate_h = 5*strength_scale;
     difference() {
-        hull() for (x=[-31,31],z=[-18,18]) translate([x,z,0]) cylinder(d=14,h=5);
-        for (x=[-31,31],z=[-18,18]) translate([x,z,-0.1]) cylinder(d=m4,h=5.2);
+        hull() for (x=[-31,31],z=[-18,18]) translate([x,z,0]) cylinder(d=plate_d,h=plate_h);
+        for (x=[-31,31],z=[-18,18]) translate([x,z,-0.1]) cylinder(d=m4,h=plate_h+0.2);
     }
 }
 
@@ -250,27 +264,31 @@ module guard_segment(with_spoke=false) {
 }
 
 module guard_joint_plate() {
+    joint_h = 4*strength_scale;
     difference() {
-        linear_extrude(height=4)
+        linear_extrude(height=joint_h)
             sector_2d(guard_inner_r+1,guard_outer_r-1,-6,6,10);
         for (a=[-4,4])
             translate([(guard_inner_r+7)*cos(a),(guard_inner_r+7)*sin(a),-0.1])
-                cylinder(d=m4,h=4.2);
+                cylinder(d=m4,h=joint_h+0.2);
     }
 }
 
 module spoke() {
     spoke_l = guard_inner_r-(motor_plate_d/2)+10;
+    spoke_d = m4 + (14-m4)*strength_scale;
+    spoke_h = 8*strength_scale;
     difference() {
-        hull() for (x=[0,spoke_l]) translate([x,0,0]) cylinder(d=14,h=8);
-        translate([5,0,-0.1]) cylinder(d=m4,h=8.2);
-        translate([spoke_l-5,0,-0.1]) cylinder(d=m4,h=8.2);
+        hull() for (x=[0,spoke_l]) translate([x,0,0]) cylinder(d=spoke_d,h=spoke_h);
+        translate([5,0,-0.1]) cylinder(d=m4,h=spoke_h+0.2);
+        translate([spoke_l-5,0,-0.1]) cylinder(d=m4,h=spoke_h+0.2);
     }
 }
 
 module shield_spacer() {
+    spacer_d = m3 + (10-m3)*strength_scale;
     difference() {
-        cylinder(d=10,h=shield_standoff);
+        cylinder(d=spacer_d,h=shield_standoff);
         translate([0,0,-0.1]) cylinder(d=m3,h=shield_standoff+0.2);
     }
 }
