@@ -411,26 +411,34 @@ module rotating_rx_carrier() {
     board_z = -(rx_coil_od/2 + rx_board[1]/2 + coil_holder_wall);
     lobe_w = rx_board[0] + 2*(coil_holder_wall+4);
     lug_x = lobe_w/2 - 3.5;
+    // The receiver PCB is 4.4 mm thick, so its lobe must be thicker than
+    // the coil ring.  It projects on the rotor side (+Y) and retains the PCB
+    // against a 3.1 mm inner wall instead of cutting through the carrier.
+    board_lobe_t = rx_board[2] + coil_holder_wall;
+    board_lobe_center_y = body_t/2 + board_lobe_t/2;
 
     difference() {
         union() {
             y_cylinder(outer_d,body_t);
             hull() {
                 y_cylinder(outer_d,body_t);
-                translate([0,0,board_z])
-                    cube([lobe_w,body_t,rx_board[1]+2*coil_holder_wall],center=true);
+                translate([0,board_lobe_center_y,board_z])
+                    cube([lobe_w,board_lobe_t,
+                          rx_board[1]+2*coil_holder_wall],center=true);
             }
         }
         // Recess opens toward the fixed transmitter (-Y).
         translate([0,-body_t/2 + rx_coil_t/2 - 0.05,0])
             y_cylinder(rx_coil_od+2*coil_fit,rx_coil_t+0.1);
         y_cylinder(carrier_center_bore,body_t+1);
-        translate([0,body_t/2-rx_board[2]/2,board_z])
+        translate([0,board_lobe_center_y + board_lobe_t/2 - rx_board[2]/2 + 0.05,
+                   board_z])
             cube([rx_board[0]+2*coil_fit,rx_board[2]+2*coil_fit,
                   rx_board[1]+2*coil_fit],center=true);
         // Two through-holes for M3 bolts into the printed blade hub/back plate.
         for (sx=[-1,1])
-            translate([sx*lug_x,0,board_z]) y_cylinder(carrier_m3_clear,body_t+1);
+            translate([sx*lug_x,board_lobe_center_y,board_z])
+                y_cylinder(carrier_m3_clear,board_lobe_t+1);
         // Receiver cable exit toward the board pocket.
         translate([-motor_phase_bundle_w/2,-body_t/2-0.1,-outer_d/2-0.2])
             cube([motor_phase_bundle_w,body_t+0.2,outer_d/2-board_z+1]);
