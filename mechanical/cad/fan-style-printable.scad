@@ -28,6 +28,13 @@ base_wall = 3.2 * strength_scale;
 base_floor = 4 * strength_scale;
 cover_t = 4 * strength_scale;
 
+// Snap-in DC rocker switch opening. It is placed on the rear-right sidewall,
+// away from the cable outlets and ballast pockets. Nominal panel cut-out 28 x 12 mm.
+switch_cutout = [28,12];
+switch_x = 82;
+switch_y = base_y + base_size[1]/2 - 1;
+switch_z = 20;
+
 // Hardware clearances.
 m3 = 3.4;
 m4 = 4.5;
@@ -134,6 +141,11 @@ module base_shell() {
         // Power and service cable slots.
         translate([-10,base_y+base_size[1]/2-8,10]) cube([20,18,15]);
         translate([-22,base_y-base_size[1]/2-6,12]) cube([44,18,12]);
+        // Rear-right opening for a snap-in DC-rated rocker switch.
+        // X = 28 mm, Z = 12 mm, opening passes fully through the rear wall.
+        translate([switch_x-switch_cutout[0]/2,switch_y-12,
+                   switch_z-switch_cutout[1]/2])
+            cube([switch_cutout[0],24,switch_cutout[1]]);
     }
 }
 
