@@ -46,8 +46,8 @@ pcb = [128.651,48.260,1.6];
 pcb_center = [0,28,11];
 
 // Measured wireless-power components. Dimensions are physical envelopes in mm.
-// These are reference solids only: the final concentric holders still require
-// wire-exit coordinates and the measured motor-to-rotor plane distance.
+// The fixed transmitter carrier is referenced from the motor mounting plane.
+// The receiver carrier is fixed to the rotating blade hub using its two M3 ears.
 tx_coil_od = 42.4;
 tx_coil_id = 20.3;
 tx_coil_t = 2.3;
@@ -66,6 +66,22 @@ coil_lead_radius = coil_lead_chord/(2*sin(coil_lead_span/2));
 coil_lead_rotation = -90;
 // Three motor phase wires leave together; reserve this cable-channel width.
 motor_phase_bundle_w = 8;
+
+// Measured A2212/13T motor interface.  Motor axis is Y; its mounting face is
+// y=0 and the shaft begins at y=29.5.  The two available mounting holes are
+// opposite on X and accept M2.5 hardware (M2.9 clearance in the printed part).
+motor_od = 27.81;
+motor_mount_hole_spacing = 32.8;
+motor_mount_hole_d = 2.65;
+motor_mount_clear_d = 2.9;
+motor_shaft_start_y = 29.5;
+motor_shaft_end_y = 40.6;
+
+// Printable coil-carrier clearances and retention dimensions.
+coil_fit = 0.35;
+coil_holder_wall = 2.4 * strength_scale;
+carrier_center_bore = 13.0; // clears the 12.06 mm prop adapter
+carrier_m3_clear = 3.4;
 
 pedestal_depth = 58;
 pedestal_y = 25;
@@ -327,6 +343,100 @@ module shield_spacer() {
     }
 }
 
+// Cylinder whose axis is the motor axis (Y), rather than the print/export Z.
+module y_cylinder(d,h,center=true) {
+    rotate([90,0,0]) cylinder(d=d,h=h,center=center);
+}
+
+module tx_board_pocket(center_y, center_z, body_t) {
+    // The board is held in a shallow forward-facing recess.  Its cable exits
+    // downward, matching coil_lead_rotation=-90.
+    translate([0,center_y + body_t/2 - tx_board[2]/2,
+               center_z])
+        cube([tx_board[0]+2*coil_fit,tx_board[2]+2*coil_fit,
+              tx_board[1]+2*coil_fit],center=true);
+}
+
+// Fixed part: two thin side arms keep clear of the motor body and attach to
+// the two measured motor mounting holes.  The coil lies at the start of the
+// shaft, faces +Y, and is retained by a 1 mm printed rim.
+module stationary_tx_carrier() {
+    body_t = tx_coil_t + coil_holder_wall;
+    coil_center_y = motor_shaft_start_y + tx_coil_t/2;
+    // Rear face of TX coil is at the shaft-start plane; a solid wall sits
+    // behind it.  This fixes the physical air gap independently of wall size.
+    body_center_y = coil_center_y - coil_holder_wall/2;
+    outer_d = tx_coil_od + 2*coil_holder_wall;
+    board_z = -(tx_coil_od/2 + tx_board[1]/2 + coil_holder_wall);
+    arm_d = 5.2;
+    mount_x = motor_mount_hole_spacing/2;
+    ring_arm_x = outer_d/2 - coil_holder_wall/2;
+
+    difference() {
+        union() {
+            // Main coil ring and board lobe.
+            translate([0,body_center_y,0]) y_cylinder(outer_d,body_t);
+            hull() {
+                translate([0,body_center_y,0]) y_cylinder(outer_d,body_t);
+                translate([0,body_center_y,board_z])
+                    cube([tx_board[0]+2*coil_holder_wall,body_t,
+                          tx_board[1]+2*coil_holder_wall],center=true);
+            }
+            // Two arms run outside the motor envelope from its mounting face.
+            for (sx=[-1,1]) hull() {
+                translate([sx*mount_x,body_t/2,0]) y_cylinder(arm_d,body_t);
+                translate([sx*ring_arm_x,body_center_y,0]) y_cylinder(arm_d,body_t);
+            }
+        }
+        // Coil recess opens forward (+Y), leaving a solid rear wall.
+        translate([0,coil_center_y + 0.05,0])
+            y_cylinder(tx_coil_od+2*coil_fit,tx_coil_t+0.1);
+        translate([0,body_center_y,0]) y_cylinder(carrier_center_bore,body_t+1);
+        tx_board_pocket(body_center_y,board_z,body_t);
+        // M2.5 mounting holes, deliberately slightly oversized for printing.
+        for (sx=[-1,1])
+            translate([sx*mount_x,body_t/2,0])
+                y_cylinder(motor_mount_clear_d,body_t+1);
+        // Cable window from coil to the board pocket, 8 mm wide.
+        translate([-motor_phase_bundle_w/2,body_center_y,-outer_d/2-0.2])
+            cube([motor_phase_bundle_w,body_t+1,outer_d/2-board_z+1]);
+    }
+}
+
+// Rotating part: receiver coil faces -Y.  The long board sits in the lower
+// lobe; two M3 lugs fasten this carrier to a blade hub/backing plate.
+module rotating_rx_carrier() {
+    body_t = rx_coil_t + coil_holder_wall;
+    outer_d = rx_coil_od + 2*coil_holder_wall;
+    board_z = -(rx_coil_od/2 + rx_board[1]/2 + coil_holder_wall);
+    lobe_w = rx_board[0] + 2*(coil_holder_wall+4);
+    lug_x = lobe_w/2 - 3.5;
+
+    difference() {
+        union() {
+            y_cylinder(outer_d,body_t);
+            hull() {
+                y_cylinder(outer_d,body_t);
+                translate([0,0,board_z])
+                    cube([lobe_w,body_t,rx_board[1]+2*coil_holder_wall],center=true);
+            }
+        }
+        // Recess opens toward the fixed transmitter (-Y).
+        translate([0,-body_t/2 + rx_coil_t/2 - 0.05,0])
+            y_cylinder(rx_coil_od+2*coil_fit,rx_coil_t+0.1);
+        y_cylinder(carrier_center_bore,body_t+1);
+        translate([0,body_t/2-rx_board[2]/2,board_z])
+            cube([rx_board[0]+2*coil_fit,rx_board[2]+2*coil_fit,
+                  rx_board[1]+2*coil_fit],center=true);
+        // Two through-holes for M3 bolts into the printed blade hub/back plate.
+        for (sx=[-1,1])
+            translate([sx*lug_x,0,board_z]) y_cylinder(carrier_m3_clear,body_t+1);
+        // Receiver cable exit toward the board pocket.
+        translate([-motor_phase_bundle_w/2,-body_t/2-0.1,-outer_d/2-0.2])
+            cube([motor_phase_bundle_w,body_t+0.2,outer_d/2-board_z+1]);
+    }
+}
+
 module coil_reference(outer_d,inner_d,thickness) {
     rotate([90,0,0])
         difference() {
@@ -364,6 +474,20 @@ module coil_stack_reference() {
         color([0.10,0.45,0.18,0.8]) cube([tx_board[0],tx_board[2],tx_board[1]],center=true);
     translate([rx_coil_od/2+rx_board[0]/2+2,(coil_face_gap+rx_coil_t)/2,0])
         color([0.10,0.45,0.18,0.8]) cube([rx_board[0],rx_board[2],rx_board[1]],center=true);
+}
+
+// Inspection assembly only.  It places the holders at their axial design
+// positions relative to the motor mounting plane; the real motor and coils
+// remain purchased components.
+module coil_carrier_assembly() {
+    color([0.18,0.18,0.20,0.75])
+        translate([0,motor_od/2,0]) y_cylinder(motor_od,motor_shaft_start_y);
+    color([0.14,0.35,0.78,0.9]) stationary_tx_carrier();
+    // TX front face: y = 29.5 + 2.3.  RX rear face is exactly 3 mm ahead.
+    rx_coil_center_y = motor_shaft_start_y + tx_coil_t + coil_face_gap + rx_coil_t/2;
+    rx_body_center_y = rx_coil_center_y + coil_holder_wall/2;
+    color([0.85,0.40,0.10,0.9])
+        translate([0,rx_body_center_y,0]) rotating_rx_carrier();
 }
 
 module assembly() {
@@ -413,4 +537,7 @@ else if (part=="guard_joint" || export_part==16) guard_joint_plate();
 else if (part=="spoke" || export_part==17) spoke();
 else if (part=="shield_spacer" || export_part==18) shield_spacer();
 else if (part=="coil_stack_reference" || export_part==19) coil_stack_reference();
+else if (part=="stationary_tx_carrier" || export_part==20) stationary_tx_carrier();
+else if (part=="rotating_rx_carrier" || export_part==21) rotating_rx_carrier();
+else if (part=="coil_carrier_assembly" || export_part==22) coil_carrier_assembly();
 else assembly();
