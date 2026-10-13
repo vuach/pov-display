@@ -86,6 +86,9 @@ carrier_m3_clear = 3.4;
 pedestal_depth = 58;
 pedestal_y = 25;
 pedestal_split_z = 158;
+// Internal vertical raceway: 8 mm motor-phase bundle plus the two low-current
+// transmitter supply wires.  It opens into the base and beneath the motor head.
+pedestal_cable_channel = [14,10];
 motor_plate_d = 92;
 motor_plate_t = 9 * strength_scale;
 motor_plate_attach_r = 31;
@@ -239,6 +242,14 @@ module pedestal_raw() {
             linear_extrude(height=pedestal_depth+2,center=true)
                 polygon([[-33,base_size[2]+32],[33,base_size[2]+32],
                          [20,axis_z-89],[-20,axis_z-89]]);
+        // Protected internal route from base electronics to the motor head.
+        // Its middle intersects the open service window, making the bundle
+        // accessible before the two pedestal halves are bolted together.
+        translate([-pedestal_cable_channel[0]/2,
+                   pedestal_y-pedestal_cable_channel[1]/2,
+                   base_size[2]-1])
+            cube([pedestal_cable_channel[0],pedestal_cable_channel[1],
+                  axis_z-base_size[2]+3]);
         for (p=pedestal_bolts)
             translate([p[0],p[1],base_size[2]-1]) cylinder(d=m4,h=18);
         // Holes for two join plates across the horizontal split.
