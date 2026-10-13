@@ -45,6 +45,28 @@ fit_gap = 0.35;
 pcb = [128.651,48.260,1.6];
 pcb_center = [0,28,11];
 
+// Measured wireless-power components. Dimensions are physical envelopes in mm.
+// These are reference solids only: the final concentric holders still require
+// wire-exit coordinates and the measured motor-to-rotor plane distance.
+tx_coil_od = 42.4;
+tx_coil_id = 20.3;
+tx_coil_t = 2.3;
+tx_board = [18,10.2,3];
+rx_coil_od = 43;
+rx_coil_id = 20.2;
+rx_coil_t = 1.2;
+rx_board = [14,27.7,4.4];
+coil_face_gap = 3;
+// Pair of coil leads: 8 mm chord, 20 degree central separation. The absolute
+// rotation is intentionally adjustable until the final motor reference is set.
+coil_lead_chord = 8;
+coil_lead_span = 20;
+coil_lead_radius = coil_lead_chord/(2*sin(coil_lead_span/2));
+// 0 deg is +X in the coil plane. Leads face -Z (toward the pedestal).
+coil_lead_rotation = -90;
+// Three motor phase wires leave together; reserve this cable-channel width.
+motor_phase_bundle_w = 8;
+
 pedestal_depth = 58;
 pedestal_y = 25;
 pedestal_split_z = 158;
@@ -305,6 +327,45 @@ module shield_spacer() {
     }
 }
 
+module coil_reference(outer_d,inner_d,thickness) {
+    rotate([90,0,0])
+        difference() {
+            cylinder(d=outer_d,h=thickness,center=true);
+            cylinder(d=inner_d,h=thickness+0.2,center=true);
+        }
+}
+
+module coil_lead_reference(y) {
+    for (a=[-coil_lead_span/2,coil_lead_span/2])
+        translate([coil_lead_radius*cos(coil_lead_rotation+a),y,
+                   coil_lead_radius*sin(coil_lead_rotation+a)])
+            color([0.85,0.08,0.06,0.9]) sphere(d=1.2);
+}
+
+module motor_bundle_reference() {
+    // Keep-out marker, not a printable cable clamp.
+    color([0.08,0.08,0.08,0.85])
+        translate([-motor_phase_bundle_w/2,-3,-30])
+            cube([motor_phase_bundle_w,6,30]);
+}
+
+// Exportable inspection model: fixed transmitter, 3 mm face gap, rotating
+// receiver. Board solids are deliberately separate because their wire exits
+// and final angular positions are not yet measured.
+module coil_stack_reference() {
+    translate([0,-(coil_face_gap+tx_coil_t)/2,0])
+        color([0.85,0.45,0.12,0.75]) coil_reference(tx_coil_od,tx_coil_id,tx_coil_t);
+    translate([0,(coil_face_gap+rx_coil_t)/2,0])
+        color([0.12,0.45,0.85,0.75]) coil_reference(rx_coil_od,rx_coil_id,rx_coil_t);
+    coil_lead_reference(-(coil_face_gap+tx_coil_t)/2);
+    coil_lead_reference((coil_face_gap+rx_coil_t)/2);
+    motor_bundle_reference();
+    translate([tx_coil_od/2+tx_board[0]/2+2,-(coil_face_gap+tx_coil_t)/2,0])
+        color([0.10,0.45,0.18,0.8]) cube([tx_board[0],tx_board[2],tx_board[1]],center=true);
+    translate([rx_coil_od/2+rx_board[0]/2+2,(coil_face_gap+rx_coil_t)/2,0])
+        color([0.10,0.45,0.18,0.8]) cube([rx_board[0],rx_board[2],rx_board[1]],center=true);
+}
+
 module assembly() {
     color([0.10,0.12,0.15]) base_shell();
     color([0.18,0.20,0.23]) cover_full();
@@ -351,4 +412,5 @@ else if (part=="guard_spoke" || export_part==15) guard_segment(true);
 else if (part=="guard_joint" || export_part==16) guard_joint_plate();
 else if (part=="spoke" || export_part==17) spoke();
 else if (part=="shield_spacer" || export_part==18) shield_spacer();
+else if (part=="coil_stack_reference" || export_part==19) coil_stack_reference();
 else assembly();
