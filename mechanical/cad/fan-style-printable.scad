@@ -509,6 +509,44 @@ module coil_carrier_assembly() {
         translate([0,rx_body_center_y,0]) rotating_rx_carrier();
 }
 
+// Bed-packed exports for repeated parts.  They assume a 220 x 220 mm bed and
+// place every copy with a visible clearance; slicers can use them directly.
+module seam_plate_set_4() {
+    for (x=[0,80],y=[0,30]) translate([x,y,0]) seam_plate();
+}
+
+module pedestal_join_plate_set_2() {
+    for (x=[0,85]) translate([x,0,0]) pedestal_join_plate();
+}
+
+module guard_plain_set_4() {
+    for (i=[0:3]) translate([i*45-187,85,0]) guard_segment(false);
+}
+
+module guard_spoke_set_4() {
+    for (i=[0:3]) translate([i*45-187,85,0]) guard_segment(true);
+}
+
+module guard_joint_set_8() {
+    for (row=[0:1],col=[0:3])
+        translate([col*27-199,row*52+23,0]) guard_joint_plate();
+}
+
+module spoke_set_4() {
+    for (i=[0:3]) translate([0,i*25,0]) spoke();
+}
+
+module shield_spacer_set_16() {
+    for (row=[0:3],col=[0:3])
+        translate([col*20,row*20,0]) shield_spacer();
+}
+
+// Carrier and motor-plate geometry is constructed in the rotor X-Z plane.
+// Rotate it so its broad face lies on the printer bed.
+module stationary_tx_carrier_print() { rotate([90,0,0]) stationary_tx_carrier(); }
+module rotating_rx_carrier_print() { rotate([90,0,0]) rotating_rx_carrier(); }
+module motor_plate_print() { rotate([90,0,0]) motor_plate(); }
+
 module assembly() {
     color([0.10,0.12,0.15]) base_shell();
     color([0.18,0.20,0.23]) cover_full();
@@ -559,4 +597,14 @@ else if (part=="coil_stack_reference" || export_part==19) coil_stack_reference()
 else if (part=="stationary_tx_carrier" || export_part==20) stationary_tx_carrier();
 else if (part=="rotating_rx_carrier" || export_part==21) rotating_rx_carrier();
 else if (part=="coil_carrier_assembly" || export_part==22) coil_carrier_assembly();
+else if (part=="seam_plate_set_4" || export_part==23) seam_plate_set_4();
+else if (part=="pedestal_join_plate_set_2" || export_part==24) pedestal_join_plate_set_2();
+else if (part=="guard_plain_set_4" || export_part==25) guard_plain_set_4();
+else if (part=="guard_spoke_set_4" || export_part==26) guard_spoke_set_4();
+else if (part=="guard_joint_set_8" || export_part==27) guard_joint_set_8();
+else if (part=="spoke_set_4" || export_part==28) spoke_set_4();
+else if (part=="shield_spacer_set_16" || export_part==29) shield_spacer_set_16();
+else if (part=="stationary_tx_carrier_print" || export_part==30) stationary_tx_carrier_print();
+else if (part=="rotating_rx_carrier_print" || export_part==31) rotating_rx_carrier_print();
+else if (part=="motor_plate_print" || export_part==32) motor_plate_print();
 else assembly();
