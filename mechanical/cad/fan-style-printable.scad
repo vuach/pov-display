@@ -104,6 +104,15 @@ ring_depth = 10 * strength_scale;
 ring_segments = 8;
 segment_angle = 360/ring_segments;
 shield_standoff = (guard_depth-ring_depth)/2;
+// One guard segment carries the stationary Hall reference magnet.  The 9 x 4
+// mm disc is retained by a rear cap; its active face remains behind a 0.8 mm
+// printed skin, facing the rotor in the motor-axis direction.
+hall_magnet_d = 9;
+hall_magnet_t = 4;
+hall_magnet_fit_d = 9.3;
+hall_magnet_r = 170;
+hall_magnet_front_skin = 0.8;
+hall_magnet_cap_screw_d = 2.1; // M2.5 self-tapping pilot
 
 lid_points = [
     [-150,base_y-62], [150,base_y-62],
@@ -345,6 +354,43 @@ module guard_segment(with_spoke=false) {
     }
 }
 
+// Replacement for one ordinary guard segment.  Its tongue enters the guard
+// interior but is stationary; the rotating Hall sensor must pass at r=170 mm.
+module guard_magnet_segment() {
+    tongue_d = 20;
+    screw_y = 7;
+    difference() {
+        union() {
+            guard_segment(false);
+            linear_extrude(height=ring_depth)
+                hull() {
+                    translate([hall_magnet_r,0]) circle(d=tongue_d);
+                    translate([guard_inner_r+7,0]) circle(d=18);
+                }
+        }
+        // Insert magnet from the rear.  The front skin prevents it from
+        // reaching the rotor even if the cap is removed.
+        translate([hall_magnet_r,0,hall_magnet_front_skin])
+            cylinder(d=hall_magnet_fit_d,
+                     h=ring_depth-hall_magnet_front_skin+0.1);
+        // Blind pilot holes for the removable rear retaining cap.
+        for (yy=[-screw_y,screw_y])
+            translate([hall_magnet_r,yy,ring_depth-8])
+                cylinder(d=hall_magnet_cap_screw_d,h=8.2);
+    }
+}
+
+module hall_magnet_cap() {
+    cap_d = 18;
+    cap_t = 2.4;
+    screw_y = 7;
+    difference() {
+        cylinder(d=cap_d,h=cap_t);
+        for (yy=[-screw_y,screw_y])
+            translate([0,yy,-0.1]) cylinder(d=2.8,h=cap_t+0.2);
+    }
+}
+
 module guard_joint_plate() {
     joint_h = 4*strength_scale;
     difference() {
@@ -562,6 +608,10 @@ module shield_spacer_set_16() {
         translate([col*20,row*20,0]) shield_spacer();
 }
 
+module guard_plain_set_3() {
+    for (i=[0:2]) translate([i*76,0,0]) guard_segment(false);
+}
+
 // Carrier and motor-plate geometry is constructed in the rotor X-Z plane.
 // Rotate it so its broad face lies on the printer bed.
 module stationary_tx_carrier_print() { rotate([90,0,0]) stationary_tx_carrier(); }
@@ -577,7 +627,9 @@ module assembly() {
     // Eight ring segments and four spokes.
     for (i=[0:ring_segments-1])
         translate([0,-12,axis_z]) rotate([90,0,0]) rotate([0,0,i*segment_angle])
-            color([0.06,0.08,0.10]) guard_segment(i%2==0);
+            color([0.06,0.08,0.10])
+                if (i==1) guard_magnet_segment();
+                else guard_segment(i%2==0);
     for (a=[0:90:270])
         translate([0,-17,axis_z]) rotate([0,-a,0])
             translate([motor_plate_d/2-5,0,-4]) color([0.08,0.10,0.12]) spoke();
@@ -628,4 +680,7 @@ else if (part=="shield_spacer_set_16" || export_part==29) shield_spacer_set_16()
 else if (part=="stationary_tx_carrier_print" || export_part==30) stationary_tx_carrier_print();
 else if (part=="rotating_rx_carrier_print" || export_part==31) rotating_rx_carrier_print();
 else if (part=="motor_plate_print" || export_part==32) motor_plate_print();
+else if (part=="guard_plain_set_3" || export_part==33) guard_plain_set_3();
+else if (part=="guard_magnet_segment" || export_part==34) guard_magnet_segment();
+else if (part=="hall_magnet_cap" || export_part==35) hall_magnet_cap();
 else assembly();
