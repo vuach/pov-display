@@ -86,6 +86,11 @@ carrier_m3_clear = 3.4;
 pedestal_depth = 58;
 pedestal_y = 25;
 pedestal_split_z = 158;
+// Box-beam pedestal: closed outer skins carry bending, while the interior is
+// empty.  Local bosses retain material at every bolt load path.
+pedestal_shell_t = 4.8;
+pedestal_motor_boss_d = 15;
+pedestal_foot_boss_d = 14;
 // Internal vertical raceway: 8 mm motor-phase bundle plus the two low-current
 // transmitter supply wires.  It opens into the base and beneath the motor head.
 pedestal_cable_channel = [14,10];
@@ -233,18 +238,34 @@ module pedestal_profile() {
              [46,axis_z],[-46,axis_z],[-41,axis_z-45]]);
 }
 
+module pedestal_outer() {
+    translate([0,pedestal_y,0]) rotate([90,0,0])
+        linear_extrude(height=pedestal_depth,center=true) pedestal_profile();
+}
+
+module pedestal_inner_void() {
+    translate([0,pedestal_y,0]) rotate([90,0,0])
+        linear_extrude(height=pedestal_depth-2*pedestal_shell_t,center=true)
+            offset(delta=-pedestal_shell_t) pedestal_profile();
+}
+
 module pedestal_raw() {
     difference() {
-        translate([0,pedestal_y,0]) rotate([90,0,0])
-            linear_extrude(height=pedestal_depth,center=true) pedestal_profile();
-        // Lightening/cable window.
-        translate([0,pedestal_y,0]) rotate([90,0,0])
-            linear_extrude(height=pedestal_depth+2,center=true)
-                polygon([[-33,base_size[2]+32],[33,base_size[2]+32],
-                         [20,axis_z-89],[-20,axis_z-89]]);
-        // Protected internal route from base electronics to the motor head.
-        // Its middle intersects the open service window, making the bundle
-        // accessible before the two pedestal halves are bolted together.
+        union() {
+            // Closed hollow box beam: 4.8 mm outside skins and a continuous
+            // perimeter web replace the former almost-solid pedestal.
+            difference() { pedestal_outer(); pedestal_inner_void(); }
+            // Local solid bosses carry screw-clamp and motor-plate loads.
+            for (p=pedestal_bolts)
+                translate([p[0],p[1],base_size[2]-1])
+                    cylinder(d=pedestal_foot_boss_d,h=18);
+            for (a=[45,135,225,315])
+                translate([motor_plate_attach_r*cos(a),pedestal_y,
+                           axis_z+motor_plate_attach_r*sin(a)])
+                    rotate([90,0,0])
+                        cylinder(d=pedestal_motor_boss_d,h=pedestal_depth,center=true);
+        }
+        // Protected raceway for the motor bundle and the two TX supply wires.
         translate([-pedestal_cable_channel[0]/2,
                    pedestal_y-pedestal_cable_channel[1]/2,
                    base_size[2]-1])
