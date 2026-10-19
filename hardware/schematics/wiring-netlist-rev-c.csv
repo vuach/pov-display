@@ -1,39 +1,22 @@
-section,from,from_pin,to,to_pin,net,condition
-stationary,LiPo 3S,XT60+,F1,IN,VBAT_RAW,main fuse rating TBD
-stationary,F1,OUT,SW,IN,VBAT_FUSED,DC rated switch
-stationary,SW,MOTOR_OUT,ESC,POWER+,VBAT_SW,heavy wire
-stationary,LiPo 3S,XT60-,ESC,POWER-,GND_STATOR,heavy wire
-stationary,SW,LOGIC_OUT,F2,IN,VBAT_SW,separate electronics fuse
-stationary,F2,OUT,MP1584,IN+,VBAT_LOGIC,transmitter branch
-stationary,LiPo 3S,XT60-,MP1584,IN-,GND_STATOR,common ground
-stationary,MP1584,OUT+,INDUCTIVE_TX,VIN+,VTX,set for selected transmitter input
-stationary,MP1584,OUT-,INDUCTIVE_TX,VIN-,GND_STATOR,do not assume 5 V until transmitter selected
-stationary,ESP32 DevKit,GPIO15,RESC,1,ESC_PWM_3V3,220 ohm; GPIO15 is sampled during reset; R2 keeps ESC low and the external circuit must not actively drive the line during reset
-stationary,RESC,2,ESC,SIGNAL,ESC_PWM,direct stationary connection
-stationary,ESP32 DevKit,GND,ESC,GND,GND_STATOR,BEC red wire isolated
-contactless,INDUCTIVE_TX,FIELD,INDUCTIVE_RX,FIELD,MAGNETIC_LINK,no galvanic connection
-rotor,INDUCTIVE_RX,5V,ROTOR_STAR,5V,5V_ROTOR,must remain at least 4.7 V
-rotor,INDUCTIVE_RX,GND,ROTOR_STAR,GND,GND_ROTOR,
-rotor,ROTOR_STAR,5V,ESP32-C3,5V/VBUS,5V_ROTOR,exact pin depends on module
-rotor,ROTOR_STAR,GND,ESP32-C3,GND,GND_ROTOR,
-rotor,ROTOR_STAR,5V,SN74AHCT125,14,5V_ROTOR,100 nF from pin 14 to pin 7
-rotor,ROTOR_STAR,GND,SN74AHCT125,7,GND_ROTOR,
-rotor,ESP32-C3,DATA_GPIO_TBD,SN74AHCT125,2,LED_DATA_3V3,hardware SPI preferred
-rotor,ESP32-C3,CLOCK_GPIO_TBD,SN74AHCT125,5,LED_CLOCK_3V3,hardware SPI preferred
-rotor,SN74AHCT125,1,GND_ROTOR,,OE1_LOW,enable gate 1
-rotor,SN74AHCT125,4,GND_ROTOR,,OE2_LOW,enable gate 2
-rotor,SN74AHCT125,3,RDATA,1,LED_DATA_5V,330 ohm
-rotor,SN74AHCT125,6,RCLOCK,1,LED_CLOCK_5V,330 ohm
-rotor,RDATA,2,BLADE_A,DI,LED_DATA_A,
-rotor,RCLOCK,2,BLADE_A,CI,LED_CLOCK_A,
-rotor,ROTOR_STAR,5V,BLADE_A,5V,5V_BLADE_A,separate power branch
-rotor,ROTOR_STAR,GND,BLADE_A,GND,GND_BLADE_A,separate power branch
-rotor,BLADE_A,DO_LAST,BLADE_B,DI,LED_DATA_RETURN,two-wire return to centre
-rotor,BLADE_A,CO_LAST,BLADE_B,CI,LED_CLOCK_RETURN,two-wire return to centre
-rotor,ROTOR_STAR,5V,BLADE_B,5V,5V_BLADE_B,separate power branch
-rotor,ROTOR_STAR,GND,BLADE_B,GND,GND_BLADE_B,separate power branch
-rotor,ESP32-C3,3V3,RHALL,1,HALL_PULLUP,10 kohm
-rotor,RHALL,2,KY-003,S,HALL_SIGNAL,also to ESP32-C3 Hall GPIO TBD
-rotor,ESP32-C3,HALL_GPIO_TBD,KY-003,S,HALL_SIGNAL,must measure 3.3/0 V first
-rotor,ESP32-C3,3V3,KY-003,+,3V3_ROTOR,
-rotor,ESP32-C3,GND,KY-003,-,GND_ROTOR,
+section,from,from_pin,to,to_pin,net,status
+stationary,LiPo 3S,XT60+,ESC,POWER+,VBAT_MOTOR,heavy external branch
+stationary,LiPo 3S,XT60-,ESC,POWER-,GND_STATOR,heavy external branch
+stationary,LiPo 3S,XT60+,External fuse,IN,VBAT_LOGIC,bench configuration
+stationary,External fuse,OUT,D1,anode,VBAT_PROTECTED,F1/J1.1 bypassed
+stationary,D1,cathode,U2,IN+,VBAT_PROTECTED,PCB-S2
+stationary,D1,cathode,U3,IN+,VBAT_PROTECTED,PCB-S2
+stationary,U2,OUT+,ESP32-C3,5V,5V_STATOR,4.95-5.03 V measured
+stationary,U3,OUT+,INDUCTIVE_TX,VIN+,9V_TX,8.98 V measured
+stationary,ESP32-C3,GPIO6,J3,3,ESC_PWM,external jumper
+stationary,ESP32-C3,GND,J3,1,GND_STATOR,common ground
+stationary,ESC,BEC red,, ,BEC_NC,isolated
+contactless,INDUCTIVE_TX,field,INDUCTIVE_RX,field,MAGNETIC_LINK,no galvanic link
+rotor,INDUCTIVE_RX,5V,PCB-R2,5V_R,5V_R,planned
+rotor,INDUCTIVE_RX,GND,PCB-R2,GND_R,GND_R,planned
+rotor,ESP32-C3 rotor,GPIO4,SN74AHCT125,A1,LED_DATA_3V3,planned
+rotor,ESP32-C3 rotor,GPIO5,SN74AHCT125,A2,LED_CLK_3V3,planned
+rotor,ESP32-C3 rotor,GPIO7,Hall,S,HALL_S,planned
+rotor,SN74AHCT125,Y1,LED A,DI,LED_DATA_5V,planned
+rotor,SN74AHCT125,Y2,LED A,CI,LED_CLK_5V,planned
+rotor,LED A,DO,LED B,DI,LEDA_DO,planned
+rotor,LED A,CO,LED B,CI,LEDA_CO,planned

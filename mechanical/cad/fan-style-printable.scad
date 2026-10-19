@@ -86,8 +86,9 @@ carrier_m3_clear = 3.4;
 pedestal_depth = 58;
 pedestal_y = 25;
 pedestal_split_z = 158;
-// Box-beam pedestal: closed outer skins carry bending, while the interior is
-// empty.  Local bosses retain material at every bolt load path.
+// Pedestal parts print face-down.  The rear is deliberately open, making each
+// half a shallow U-channel rather than a closed box: no internal ceiling, no
+// supports inside the cable space.  The 4.8 mm front skin carries bending.
 pedestal_shell_t = 4.8;
 pedestal_motor_boss_d = 15;
 pedestal_foot_boss_d = 14;
@@ -253,17 +254,42 @@ module pedestal_outer() {
 }
 
 module pedestal_inner_void() {
-    translate([0,pedestal_y,0]) rotate([90,0,0])
-        linear_extrude(height=pedestal_depth-2*pedestal_shell_t,center=true)
+    // Keep the front skin, but open the cavity fully through the rear face.
+    // With the front skin on the print bed this leaves an upward-facing tray.
+    translate([0,pedestal_y+pedestal_shell_t/2+0.05,0]) rotate([90,0,0])
+        linear_extrude(height=pedestal_depth-pedestal_shell_t+0.2,center=true)
             offset(delta=-pedestal_shell_t) pedestal_profile();
+}
+
+// The old four diagonal bosses extended above the end of pedestal_profile(),
+// producing two disconnected ("floating") solids in the upper STL.  This
+// open-back head ring keeps every boss connected and keeps its interior open
+// to the print bed direction.
+module pedestal_motor_head() {
+    difference() {
+        translate([0,pedestal_y,axis_z]) rotate([90,0,0])
+            cylinder(d=80,h=pedestal_depth,center=true);
+        translate([0,pedestal_y+pedestal_shell_t/2+0.05,axis_z]) rotate([90,0,0])
+            cylinder(d=80-2*pedestal_shell_t,
+                     h=pedestal_depth-pedestal_shell_t+0.2,center=true);
+    }
+}
+
+// Solid overlap web, not a separate feature: it positively joins the head
+// ring to the tapered beam below it.  This avoids coincident/tangent faces,
+// which some slicers report as a critical mesh error.
+module pedestal_motor_head_bridge() {
+    translate([-45,pedestal_y-pedestal_depth/2,axis_z-54])
+        cube([90,pedestal_depth,35]);
 }
 
 module pedestal_raw() {
     difference() {
         union() {
-            // Closed hollow box beam: 4.8 mm outside skins and a continuous
-            // perimeter web replace the former almost-solid pedestal.
+            // Front-skinned open-back box beam: strong, light and supportless.
             difference() { pedestal_outer(); pedestal_inner_void(); }
+            pedestal_motor_head();
+            pedestal_motor_head_bridge();
             // Local solid bosses carry screw-clamp and motor-plate loads.
             for (p=pedestal_bolts)
                 translate([p[0],p[1],base_size[2]-1])

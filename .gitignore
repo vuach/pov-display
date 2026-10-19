@@ -2,6 +2,7 @@
 **/.venv/
 **/.uv-cache/
 **/.platformio-core/
+**/.platformio-c3-core/
 .vscode/
 *.bin
 *.elf
