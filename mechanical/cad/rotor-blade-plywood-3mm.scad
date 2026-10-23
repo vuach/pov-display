@@ -10,7 +10,7 @@ root_width = 28;
 taper_end_r = 160;
 tip_width = 16;
 tip_round_r = 8;
-shaft_hole_d = 3.5;       // clears the measured 3.17 mm shaft
+adapter_stud_hole_d = 5.2; // clears the measured approximately M5 prop-adapter stud
 plywood_thickness = 3;
 
 // Positive half-profile, from the centre outwards.  The mirrored points make
@@ -37,7 +37,7 @@ module blade_outline_2d() {
 module blade_2d() {
     difference() {
         blade_outline_2d();
-        circle(d=shaft_hole_d,$fn=48);
+        circle(d=adapter_stud_hole_d,$fn=48);
     }
 }
 

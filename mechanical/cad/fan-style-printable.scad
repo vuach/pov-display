@@ -429,13 +429,19 @@ module guard_joint_plate() {
 }
 
 module spoke() {
-    spoke_l = guard_inner_r-(motor_plate_d/2)+10;
+    // Hole centres match the motor-plate spoke holes (r=37) and the
+    // corresponding guard holes (r=206).  The 5 mm end insets make the
+    // printed overall length 179 mm and the centre-to-centre distance 169 mm.
+    spoke_inner_hole_r = motor_plate_d/2-9;
+    spoke_outer_hole_r = guard_inner_r+3;
+    spoke_hole_inset = 5;
+    spoke_l = spoke_outer_hole_r-spoke_inner_hole_r+2*spoke_hole_inset;
     spoke_d = m4 + (14-m4)*strength_scale;
     spoke_h = 8*strength_scale;
     difference() {
         hull() for (x=[0,spoke_l]) translate([x,0,0]) cylinder(d=spoke_d,h=spoke_h);
-        translate([5,0,-0.1]) cylinder(d=m4,h=spoke_h+0.2);
-        translate([spoke_l-5,0,-0.1]) cylinder(d=m4,h=spoke_h+0.2);
+        translate([spoke_hole_inset,0,-0.1]) cylinder(d=m4,h=spoke_h+0.2);
+        translate([spoke_l-spoke_hole_inset,0,-0.1]) cylinder(d=m4,h=spoke_h+0.2);
     }
 }
 
@@ -658,7 +664,7 @@ module assembly() {
                 else guard_segment(i%2==0);
     for (a=[0:90:270])
         translate([0,-17,axis_z]) rotate([0,-a,0])
-            translate([motor_plate_d/2-5,0,-4]) color([0.08,0.10,0.12]) spoke();
+            translate([motor_plate_d/2-9-5,0,-4]) color([0.08,0.10,0.12]) spoke();
 
     if (show_hardware) {
         // Transparent shield references.
