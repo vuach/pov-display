@@ -105,12 +105,12 @@ ring_depth = 10 * strength_scale;
 ring_segments = 8;
 segment_angle = 360/ring_segments;
 shield_standoff = (guard_depth-ring_depth)/2;
-// One guard segment carries the stationary Hall reference magnet.  The 9 x 4
+// One guard segment carries the stationary Hall reference magnet.  The 10 x 5
 // mm disc is retained by a rear cap; its active face remains behind a 0.8 mm
 // printed skin, facing the rotor in the motor-axis direction.
-hall_magnet_d = 9;
-hall_magnet_t = 4;
-hall_magnet_fit_d = 9.3;
+hall_magnet_d = 10;
+hall_magnet_t = 5;
+hall_magnet_fit_d = 10.4; // 0.2 mm radial FDM assembly clearance
 hall_magnet_r = 170;
 hall_magnet_front_skin = 0.8;
 hall_magnet_cap_screw_d = 2.1; // M2.5 self-tapping pilot
@@ -411,9 +411,18 @@ module hall_magnet_cap() {
     cap_t = 2.4;
     screw_y = 7;
     difference() {
-        cylinder(d=cap_d,h=cap_t);
+        union() {
+            cylinder(d=cap_d,h=cap_t);
+            // The boss enters the magnet cavity and presses the 5 mm magnet
+            // against the front skin when the cap is screwed to the rear.
+            translate([0,0,-(ring_depth-hall_magnet_front_skin-hall_magnet_t)])
+                cylinder(d=hall_magnet_d-0.4,
+                         h=ring_depth-hall_magnet_front_skin-hall_magnet_t+0.1);
+        }
         for (yy=[-screw_y,screw_y])
-            translate([0,yy,-0.1]) cylinder(d=2.8,h=cap_t+0.2);
+            translate([0,yy,-(ring_depth-hall_magnet_front_skin-hall_magnet_t)-0.1])
+                cylinder(d=2.8,
+                         h=cap_t+ring_depth-hall_magnet_front_skin-hall_magnet_t+0.2);
     }
 }
 
